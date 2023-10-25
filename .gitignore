@@ -14,7 +14,7 @@
 
 # production
 /build
-/src/app/api/database-settings
+/src/app/api/database-settings/
 
 # misc
 .DS_Store
