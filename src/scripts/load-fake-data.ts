@@ -1,11 +1,12 @@
 import { faker } from "@faker-js/faker";
 import bcrypt from "bcrypt";
-import { getClient, salt } from "./db";
+import { Client, salt } from "./db";
 
+// tsx src/scripts/load-fake-data.ts 5
 async function loadFakeData(numUsers: number = 10) {
   console.log(`execution load fake data. generating ${numUsers} users.`);
 
-  const client = await getClient();
+  const client = await Client();
   await client.connect();
 
   try {
@@ -58,7 +59,6 @@ async function loadFakeData(numUsers: number = 10) {
   }
 }
 
-// tsx scripts/load-fake-data.ts 5
 const numUsers = parseInt(process.argv[2]) || 10;
 console.log(`loading ${numUsers} fake users`);
 loadFakeData(numUsers);
