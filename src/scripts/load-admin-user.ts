@@ -1,10 +1,14 @@
+import { loadEnvConfig } from "@next/env";
 import bcrypt from "bcrypt";
-import { Client, salt } from "./db";
+import { Client } from "./db";
+
+const projectDir = process.cwd();
+loadEnvConfig(projectDir);
 
 // tsx src/scripts/load-admin-user.ts admin strings123
 async function loadAdminUser(username: string, password: string) {
   console.log(`executing loading admin user ${username} pw ${password}`);
-
+  const salt = parseInt(process.env.NEXT_PUBLIC_DB_SALT!);
   const hash = await bcrypt.hash(password, salt);
   const client = await Client();
   await client.connect();

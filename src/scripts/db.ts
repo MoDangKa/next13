@@ -6,17 +6,15 @@ loadEnvConfig(projectDir);
 
 export async function Client(): Promise<pg.Client> {
   const config: ClientConfig = {
-    host: process.env.POSTGRES_HOST,
-    port: parseInt(process.env.POSTGRES_PORT!),
-    database: process.env.POSTGRES_DATABASE,
-    user: process.env.POSTGRES_USER,
-    password: process.env.POSTGRES_PASSWORD,
+    host: process.env.NEXT_PUBLIC_DB_HOST,
+    port: parseInt(process.env.NEXT_PUBLIC_DB_PORT!),
+    database: process.env.NEXT_PUBLIC_DB_DATABASE,
+    user: process.env.NEXT_PUBLIC_DB_USER,
+    password: process.env.NEXT_PUBLIC_DB_PASSWORD,
   };
   const client = new pg.Client(config);
   return client;
 }
-
-export const salt = 10;
 
 export async function ClientQuery(
   sql: string,

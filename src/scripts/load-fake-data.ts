@@ -1,6 +1,10 @@
 import { faker } from "@faker-js/faker";
+import { loadEnvConfig } from "@next/env";
 import bcrypt from "bcrypt";
-import { Client, salt } from "./db";
+import { Client } from "./db";
+
+const projectDir = process.cwd();
+loadEnvConfig(projectDir);
 
 // tsx src/scripts/load-fake-data.ts 5
 async function loadFakeData(numUsers: number = 10) {
@@ -14,6 +18,7 @@ async function loadFakeData(numUsers: number = 10) {
 
     for (let i = 0; i < numUsers; i++) {
       // This code is for back-end
+      const salt = parseInt(process.env.NEXT_PUBLIC_DB_SALT!);
       const hash = await bcrypt.hash("strings123", salt);
 
       await client.query(

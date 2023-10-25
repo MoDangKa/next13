@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
 import { useEffect } from "react";
-import { readFile } from "fs";
 
 export default function Home() {
-
+  useEffect(() => {
+    console.log(process.env.NEXT_PUBLIC_ENV);
+  }, []);
 
   return (
     <main className="flex min-h-screen items-center justify-center">
