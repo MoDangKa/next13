@@ -6,6 +6,9 @@ function Form() {
   const router = useRouter();
   const [username, setUsername] = useState<undefined | string>("");
   const [password, setPassword] = useState<undefined | string>("");
+  const [confirmPassword, setConfirmPassword] = useState<undefined | string>(
+    ""
+  );
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();

@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-0 mb-0 font-medium leading-tight;
+  }
+}
+@layer components {
+  .ant-form__custom .ant-form-item-label > label {
+    @apply before:text-red-500 after:text-red-500 font-light;
+  }
+  .ant-form__custom.ant-form-horizontal .ant-form-item-label > label {
+    @apply h-12;
+  }
+  .ant-form__custom.ant-form-vertical .ant-form-item-label > label.ant-form-item-required {
+    @apply before:hidden after:inline-flex after:ms-1 after:content-["*"] after:visible;
+  }
+  .ant-form__user {
+    @apply flex flex-col gap-2 p-5 max-w-xs w-full bg-slate-800 rounded-lg;
+  }
+  .ant-form-item__custom .ant-form-item-label > label {
+    @apply text-slate-100;
+  }
+  .ant-input__custom {
+    @apply text-black p-3 border border-slate-700 rounded-lg;
+  }
+  .ant-btn__custom {
+    @apply h-12 px-3 py-1 rounded-lg font-light;
+  }
+  .ant-btn__custom.ant-btn-primary {
+    @apply bg-slate-900 shadow shadow-slate-700 text-slate-400;
+  }
+  .ant-btn__custom.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+    @apply bg-slate-950 shadow-slate-500 text-slate-300;
+  }
+}
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+*,
+*::before,
+*::after {
+  font-family: var(--font-prompt), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.h1,
+h1 {
+  font-size: calc(1.375rem + 1.5vw);
+}
+
+.h2,
+h2 {
+  font-size: calc(1.325rem + 0.9vw);
+}
+
+.h3,
+h3 {
+  font-size: calc(1.3rem + 0.6vw);
+}
+
+.h4,
+h4 {
+  font-size: calc(1.275rem + 0.3vw);
+}
+
+.h5,
+h5 {
+  font-size: 1.25rem;
+}
+
+.h6,
+h6 {
+  font-size: 1rem;
+}
+
+body {
+  font-size: 16px;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}/*# sourceMappingURL=globals.css.map */

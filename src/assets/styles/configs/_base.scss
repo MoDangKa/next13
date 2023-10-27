@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+  // font-family: 'Prompt', sans-serif;
+  font-family: var(--font-prompt), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+// body {
+//   font-family: "DB Heavent Rounded";
+//   color: var(--text-color-1);
+//   min-height: 100vh;
+//   background-color: var(--body-bg-color);
+//   text-rendering: optimizeLegibility;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
