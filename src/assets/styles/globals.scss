@@ -19,7 +19,7 @@
   }
 }
 
-@import "ant-design", "configs";
+@import "ant-design", "configs", "others";
 
 // @layer components {
 //   .ant-form-item__custom .ant-form-item-label > label {
@@ -65,10 +65,11 @@ body {
   font-size: 16px;
   // font-weight: 300;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  // background: linear-gradient(
+  //     to bottom,
+  //     transparent,
+  //     rgb(var(--background-end-rgb))
+  //   )
+  //   rgb(var(--background-start-rgb));
+  @apply bg-slate-500 dark:bg-slate-950;
 }

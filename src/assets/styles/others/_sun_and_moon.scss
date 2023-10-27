@@ -1,0 +1,182 @@
+.sun-and-moon {
+  display: inline-block;
+  position: relative;
+}
+
+.sun-and-moon__input {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.sun-and-moon__label {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #2b2b2b;
+  border: 1px solid #5b5b5b;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+
+.sun-and-moon__indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(-75%);
+  display: block;
+  width: 13px;
+  height: 13px;
+  background-color: #7b7b7b;
+  border-radius: 9999px;
+  box-shadow: 10px 0px 0 0 rgba(#000000, 0.2) inset;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    background-color: #ffffff;
+    border-radius: 9999px;
+  }
+
+  &::before {
+    top: 7px;
+    left: 7px;
+    width: 4px;
+    height: 4px;
+    background-color: #ffffff;
+    opacity: 0.2;
+  }
+
+  &::after {
+    top: 2px;
+    left: 2px;
+    width: 7px;
+    height: 7px;
+    background-color: #ffffff;
+    opacity: 0.4;
+  }
+}
+
+.sun-and-moon__decoration {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  display: block;
+  width: 1px;
+  height: 1px;
+  background-color: #ffffff;
+  border-radius: 9999px;
+  animation: twinkle 0.8s infinite -0.6s;
+
+  &::before,
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 1px;
+    height: 1px;
+    background-color: #ffffff;
+    border-radius: 9999px;
+  }
+
+  &::before {
+    top: -8px;
+    left: 7px;
+    opacity: 1;
+    animation: twinkle 0.6s infinite;
+  }
+
+  &::after {
+    top: -3px;
+    left: 13px;
+    animation: twinkle 0.6s infinite -0.2s;
+  }
+}
+
+@keyframes twinkle {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.sun-and-moon__indicator {
+  &,
+  &::before,
+  &::after {
+    transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  }
+}
+
+.sun-and-moon__input:checked + .sun-and-moon__label {
+  background-color: #8fb5f5;
+  border-color: #347cf8;
+
+  .sun-and-moon__indicator {
+    background-color: #ecd21f;
+    box-shadow: none;
+    transform: translate(-50%, -50%) translateX(75%);
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .sun-and-moon__decoration {
+    top: 63%;
+    transform: translate(0%, -50%);
+    animation: cloud 8s linear infinite;
+
+    width: 8px;
+    height: 8px;
+
+    &::before {
+      width: 4px;
+      height: 4px;
+      top: auto;
+      bottom: 0;
+      left: -3px;
+      animation: none;
+    }
+
+    &::after {
+      width: 5px;
+      height: 5px;
+      top: auto;
+      bottom: 0;
+      left: 6px;
+      animation: none;
+    }
+
+    &,
+    &::before,
+    &::after {
+      border-radius: 9999px 9999px 0 0;
+    }
+
+    &::after {
+      border-bottom-right-radius: 9999px;
+    }
+  }
+}
+
+@keyframes cloud {
+  0% {
+    transform: translate(10%, -50%);
+  }
+  50% {
+    transform: translate(-20%, -50%);
+  }
+  100% {
+    transform: translate(10%, -50%);
+  }
+}

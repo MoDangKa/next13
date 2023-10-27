@@ -1,73 +1,103 @@
 "use client";
+import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
 
-function Form() {
+type FieldType = {
+  username?: string;
+  password?: string;
+  confirmPassword?: string;
+};
+
+function SignInForm() {
   const router = useRouter();
-  const [username, setUsername] = useState<undefined | string>("");
-  const [password, setPassword] = useState<undefined | string>("");
-  const [confirmPassword, setConfirmPassword] = useState<undefined | string>(
-    ""
-  );
 
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
+  async function onFinish(values: FieldType) {
+    console.log("Success:", values);
 
-    const result = await fetch("/api/login", {
+    const result = await fetch("/api/log-in", {
       method: "post",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({
+        username: values.username,
+        password: values.password,
+        confirmPassword: values.confirmPassword,
+      }),
     });
 
     if (result.ok) {
-      router.push("/feed");
+      router.push("/sign-in");
     } else {
       alert("log in failed");
     }
   }
 
+  async function onFinishFailed(errorInfo: any) {
+    console.log("Failed:", errorInfo);
+  }
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-2 p-5 max-w-xs w-full bg-slate-800 rounded-lg"
+    <Form
+      name="sign-up-form"
+      className="ant-form__custom ant-form__sign-iu"
+      layout="vertical"
+      initialValues={{ remember: true }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
     >
       <div className="text-center">
-        <h3 className="font-semibold">Sign In</h3>
+        <h1 className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          Sign Up
+        </h1>
       </div>
 
       <div className="my-3">
-        <hr />
+        <hr className="border-t-slate-700" />
       </div>
 
       <div>
-        <div className="flex flex-col gap-2">
-          <label>Username</label>
-          <input
-            className="text-black p-3 border border-slate-700 rounded-lg"
-            type="text"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            placeholder="Username"
-            required
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label>Password</label>
-          <input
-            className="text-black p-3 border border-slate-700 rounded-lg"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            placeholder="Password"
-            required
-          />
-        </div>
+        <Form.Item<FieldType>
+          label="Username"
+          name="username"
+          className="ant-form-item__custom"
+          rules={[{ required: true, message: "Please input your username!" }]}
+        >
+          <Input className="ant-input__custom" />
+        </Form.Item>
+        <Form.Item<FieldType>
+          label="Password"
+          name="password"
+          className="ant-form-item__custom"
+          rules={[{ required: true, message: "Please input your password!" }]}
+        >
+          <Input.Password className="ant-input__custom" />
+        </Form.Item>
+        <Form.Item<FieldType>
+          label="Confirm-Password"
+          name="confirmPassword"
+          className="ant-form-item__custom"
+          rules={[
+            { required: true, message: "Please confirm your password!" },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue("password") === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(
+                  new Error("The new password that you entered do not match!")
+                );
+              },
+            }),
+          ]}
+        >
+          <Input.Password className="ant-input__custom" />
+        </Form.Item>
       </div>
 
-      <button type="submit" className="mt-4 bg-slate-900 p-3 rounded-lg">
-        Sign In
-      </button>
-    </form>
+      <Button type="primary" htmlType="submit" className="ant-btn__custom">
+        Sign Up
+      </Button>
+    </Form>
   );
 }
 
-export default Form;
+export default SignInForm;

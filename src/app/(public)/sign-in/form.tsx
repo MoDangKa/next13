@@ -35,7 +35,7 @@ function SignInForm() {
   return (
     <Form
       name="sign-in-form"
-      className="ant-form__custom ant-form__user"
+      className="ant-form__custom ant-form__sign-iu"
       layout="vertical"
       initialValues={{ remember: true }}
       onFinish={onFinish}
@@ -43,7 +43,7 @@ function SignInForm() {
       autoComplete="off"
     >
       <div className="text-center">
-        <h1 className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 shadow">
+        <h1 className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
           Sign In
         </h1>
       </div>

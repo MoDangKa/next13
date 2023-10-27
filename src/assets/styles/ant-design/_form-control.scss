@@ -1,54 +1,52 @@
-@layer components {
-  .ant-form {
-    &__custom {
-      .ant-form-item-label > label {
-        @apply before:text-red-500 after:text-red-500 font-light;
-      }
-
-      &.ant-form-horizontal .ant-form-item-label > label {
-        @apply h-12;
-      }
-
-      &.ant-form-vertical .ant-form-item-label > label.ant-form-item-required {
-        @apply before:hidden after:inline-flex after:ms-1 after:content-['*'] after:visible;
-      }
+.ant-form {
+  &__custom {
+    .ant-form-item-label > label {
+      @apply before:text-red-500 after:text-red-500 font-light;
     }
 
-    &__user {
-      @apply flex flex-col gap-2 p-5 max-w-xs w-full bg-slate-800 rounded-lg;
+    &.ant-form-horizontal .ant-form-item-label > label {
+      @apply h-12;
+    }
+
+    &.ant-form-vertical .ant-form-item-label > label.ant-form-item-required {
+      @apply before:hidden after:inline-flex after:ms-1 after:content-['*'] after:visible;
     }
   }
 
-  .ant-form-item__custom .ant-form-item-label > label {
-    @apply text-slate-100;
+  &__sign-iu {
+    @apply flex flex-col gap-2 p-5 max-w-xs w-full bg-slate-800 rounded-lg;
   }
+}
 
-  .ant-input__custom {
-    @apply text-black p-3 border border-slate-700 rounded-lg;
-  }
+.ant-form-item__custom .ant-form-item-label > label {
+  @apply text-slate-100;
+}
 
-  .ant-btn {
-    &__custom {
-      @apply h-12 px-3 py-1 rounded-lg font-light;
+.ant-input__custom {
+  @apply text-black p-3 border border-slate-700 rounded-lg;
+}
 
-      &.ant-btn-primary {
-        @apply bg-slate-900 shadow shadow-slate-700 text-slate-400;
+.ant-btn {
+  &__custom {
+    @apply h-12 px-3 py-1 rounded-lg font-light;
 
-        &:not(:disabled):not(.ant-btn-disabled):hover {
-          @apply bg-slate-950 shadow-slate-500 text-slate-300;
-        }
+    &.ant-btn-primary {
+      @apply bg-slate-900 shadow-none text-slate-400;
+
+      &:not(:disabled):not(.ant-btn-disabled):hover {
+        @apply bg-slate-950 text-slate-300;
       }
-
-      // &:not(.ant-btn-primary):not(.ant-btn-dashed):not(.ant-btn-text):not(
-      //     .ant-btn-link
-      //   ) {
-      //   border-width: 2px;
-      //   background-color: white;
-
-      //   &:hover {
-      //     background-color: var(--background-color-5);
-      //   }
-      // }
     }
+
+    // &:not(.ant-btn-primary):not(.ant-btn-dashed):not(.ant-btn-text):not(
+    //     .ant-btn-link
+    //   ) {
+    //   border-width: 2px;
+    //   background-color: white;
+
+    //   &:hover {
+    //     background-color: var(--background-color-5);
+    //   }
+    // }
   }
 }
