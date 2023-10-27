@@ -1,4 +1,5 @@
 "use client";
+import FormOne from "@/components/forms/form-one";
 import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
 
@@ -13,7 +14,7 @@ function SignInForm() {
   async function onFinish(values: FieldType) {
     console.log("Success:", values);
 
-    const result = await fetch("/api/log-in", {
+    const result = await fetch("/api/sign-in", {
       method: "post",
       body: JSON.stringify({
         username: values.username,
@@ -24,7 +25,7 @@ function SignInForm() {
     if (result.ok) {
       router.push("/feed");
     } else {
-      alert("log in failed");
+      alert("sign in failed");
     }
   }
 
@@ -33,25 +34,12 @@ function SignInForm() {
   }
 
   return (
-    <Form
+    <FormOne
       name="sign-in-form"
-      className="ant-form__custom ant-form__sign-iu"
-      layout="vertical"
-      initialValues={{ remember: true }}
+      title="Sign In"
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      autoComplete="off"
     >
-      <div className="text-center">
-        <h1 className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          Sign In
-        </h1>
-      </div>
-
-      <div className="my-3">
-        <hr className="border-t-slate-700" />
-      </div>
-
       <div>
         <Form.Item<FieldType>
           label="Username"
@@ -70,11 +58,10 @@ function SignInForm() {
           <Input.Password className="ant-input__custom" />
         </Form.Item>
       </div>
-
       <Button type="primary" htmlType="submit" className="ant-btn__custom">
         Sign In
       </Button>
-    </Form>
+    </FormOne>
   );
 }
 

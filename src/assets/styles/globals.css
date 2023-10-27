@@ -1,53 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer base {
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply mt-0 mb-0 font-medium leading-tight;
-  }
-}
-.ant-form__custom .ant-form-item-label > label {
-  @apply before:text-red-500 after:text-red-500 font-light;
-}
-.ant-form__custom.ant-form-horizontal .ant-form-item-label > label {
-  @apply h-12;
-}
-.ant-form__custom.ant-form-vertical .ant-form-item-label > label.ant-form-item-required {
-  @apply before:hidden after:inline-flex after:ms-1 after:content-["*"] after:visible;
-}
-.ant-form__sign-iu {
-  @apply flex flex-col gap-2 p-5 max-w-xs w-full bg-slate-800 rounded-lg;
-}
-
-.ant-form-item__custom .ant-form-item-label > label {
-  @apply text-slate-100;
-}
-
-.ant-input__custom {
-  @apply text-black p-3 border border-slate-700 rounded-lg;
-}
-
-.ant-btn__custom {
-  @apply h-12 px-3 py-1 rounded-lg font-light;
-}
-.ant-btn__custom.ant-btn-primary {
-  @apply bg-slate-900 shadow-none text-slate-400;
-}
-.ant-btn__custom.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
-  @apply bg-slate-950 text-slate-300;
-}
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -71,163 +24,134 @@ html {
   scroll-behavior: smooth;
 }
 
+.ant-form__custom .ant-form-item-label > label {
+  @apply before:text-red-500 after:text-red-500 font-light;
+}
+.ant-form__custom.ant-form-horizontal .ant-form-item-label > label {
+  @apply h-12;
+}
+.ant-form__custom.ant-form-vertical .ant-form-item-label > label.ant-form-item-required {
+  @apply before:hidden after:inline-flex after:ms-1 after:content-["*"] after:visible;
+}
+.ant-form__sign-iu {
+  @apply flex flex-col gap-2 p-5 max-w-xs w-full rounded-lg text-white card;
+}
+
+.card {
+  @apply bg-slate-800 dark:bg-slate-700;
+}
+
+.ant-form-item__custom .ant-form-item-label > label {
+  @apply text-slate-100;
+}
+
+.ant-input__custom {
+  @apply text-black p-3 border border-slate-700 rounded-lg;
+}
+
+.ant-btn__custom {
+  @apply h-12 px-3 py-1 rounded-lg font-light;
+}
+.ant-btn__custom.ant-btn-primary {
+  @apply bg-slate-500 dark:bg-slate-900 shadow-none text-slate-900 dark:text-slate-400;
+}
+.ant-btn__custom.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  @apply bg-slate-400 dark:bg-slate-950 text-slate-900 dark:text-slate-400;
+}
+
 .sun-and-moon {
-  display: inline-block;
-  position: relative;
+  @apply inline-block relative h-5;
 }
-
-.sun-and-moon__input {
-  clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-}
-
 .sun-and-moon__label {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-  background-color: #2b2b2b;
-  border: 1px solid #5b5b5b;
-  border-radius: 9999px;
-  cursor: pointer;
+  @apply inline-block relative w-10 h-5 border border-zinc-500 bg-zinc-800 rounded-full cursor-pointer;
   transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
-
 .sun-and-moon__indicator {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) translateX(-75%);
-  display: block;
-  width: 13px;
-  height: 13px;
-  background-color: #7b7b7b;
-  border-radius: 9999px;
+  @apply block absolute top-1/2 left-1/2 w-[13px] h-[13px] -translate-y-1/2 -translate-x-[16px] bg-slate-500 rounded-full;
   box-shadow: 10px 0px 0 0 rgba(0, 0, 0, 0.2) inset;
+  transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .sun-and-moon__indicator::before, .sun-and-moon__indicator::after {
-  position: absolute;
-  content: "";
-  display: block;
-  background-color: #ffffff;
-  border-radius: 9999px;
+  @apply absolute content-[""] block bg-white rounded-full;
+  transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .sun-and-moon__indicator::before {
-  top: 7px;
-  left: 7px;
-  width: 4px;
-  height: 4px;
-  background-color: #ffffff;
-  opacity: 0.2;
+  @apply top-[7px] left-[7px] w-1 h-1 opacity-20;
 }
 .sun-and-moon__indicator::after {
-  top: 2px;
-  left: 2px;
-  width: 7px;
-  height: 7px;
-  background-color: #ffffff;
-  opacity: 0.4;
+  @apply top-0.5 left-0.5 w-[7px] h-[7px] opacity-40;
 }
-
 .sun-and-moon__decoration {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  display: block;
-  width: 1px;
-  height: 1px;
-  background-color: #ffffff;
-  border-radius: 9999px;
+  @apply absolute top-[70%] left-1/2 w-px h-px bg-white rounded-full;
   animation: twinkle 0.8s infinite -0.6s;
 }
 .sun-and-moon__decoration::before, .sun-and-moon__decoration::after {
-  position: absolute;
-  display: block;
-  content: "";
-  width: 1px;
-  height: 1px;
-  background-color: #ffffff;
-  border-radius: 9999px;
+  @apply block absolute content-[""] w-px h-px bg-white rounded-full;
 }
 .sun-and-moon__decoration::before {
-  top: -8px;
-  left: 7px;
-  opacity: 1;
+  @apply -top-2 left-[7px] opacity-100;
   animation: twinkle 0.6s infinite;
 }
 .sun-and-moon__decoration::after {
-  top: -3px;
-  left: 13px;
+  @apply -top-[3px] left-[13px];
   animation: twinkle 0.6s infinite -0.2s;
+}
+.sun-and-moon__input {
+  @apply invisible absolute;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label {
+  @apply bg-blue-300 border-sky-600;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator {
+  @apply shadow-none bg-amber-300 translate-x-[3px];
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator::before, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator::after {
+  @apply hidden;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration {
+  @apply top-[65%] translate-x-0 translate-y-1/2 w-[7px] h-[7px];
+  animation: cloud 8s linear infinite;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
+  @apply top-auto bottom-0 animate-none rounded-tl-full rounded-tr-full rounded-bl-none rounded-br-none w-1 h-1;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before {
+  @apply -left-0.5;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
+  @apply left-1.5 rounded-br-full;
 }
 
 @keyframes twinkle {
   50% {
-    opacity: 0.2;
+    @apply opacity-20;
   }
 }
-.sun-and-moon__indicator, .sun-and-moon__indicator::before, .sun-and-moon__indicator::after {
-  transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-}
-
-.sun-and-moon__input:checked + .sun-and-moon__label {
-  background-color: #8fb5f5;
-  border-color: #347cf8;
-}
-.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator {
-  background-color: #ecd21f;
-  box-shadow: none;
-  transform: translate(-50%, -50%) translateX(75%);
-}
-.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator::before, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator::after {
-  display: none;
-}
-.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration {
-  top: 63%;
-  transform: translate(0%, -50%);
-  animation: cloud 8s linear infinite;
-  width: 8px;
-  height: 8px;
-}
-.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before {
-  width: 4px;
-  height: 4px;
-  top: auto;
-  bottom: 0;
-  left: -3px;
-  animation: none;
-}
-.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
-  width: 5px;
-  height: 5px;
-  top: auto;
-  bottom: 0;
-  left: 6px;
-  animation: none;
-}
-.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
-  border-radius: 9999px 9999px 0 0;
-}
-.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
-  border-bottom-right-radius: 9999px;
-}
-
 @keyframes cloud {
   0% {
     transform: translate(10%, -50%);
   }
   50% {
-    transform: translate(-20%, -50%);
+    transform: translate(-40%, -50%);
   }
   100% {
     transform: translate(10%, -50%);
+  }
+}
+@layer base {
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-0 mb-0 font-medium leading-tight;
   }
 }
 .h1,
@@ -261,7 +185,5 @@ h6 {
 }
 
 body {
-  font-size: 16px;
-  color: rgb(var(--foreground-rgb));
-  @apply bg-slate-500 dark:bg-slate-950;
+  @apply bg-slate-200 dark:bg-slate-950 transition-all;
 }/*# sourceMappingURL=globals.css.map */

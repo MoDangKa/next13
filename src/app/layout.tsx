@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 // config ant-design
 const config: ThemeConfig = {
   token: {
-    fontSize: 16,
+    // fontSize: 16,
     // screenXS: 640,
     // screenSM: 640,
     // screenMD: 768,

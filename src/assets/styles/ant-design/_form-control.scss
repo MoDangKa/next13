@@ -14,8 +14,12 @@
   }
 
   &__sign-iu {
-    @apply flex flex-col gap-2 p-5 max-w-xs w-full bg-slate-800 rounded-lg;
+    @apply flex flex-col gap-2 p-5 max-w-xs w-full rounded-lg text-white card;
   }
+}
+
+.card {
+  @apply bg-slate-800 dark:bg-slate-700;
 }
 
 .ant-form-item__custom .ant-form-item-label > label {
@@ -31,10 +35,10 @@
     @apply h-12 px-3 py-1 rounded-lg font-light;
 
     &.ant-btn-primary {
-      @apply bg-slate-900 shadow-none text-slate-400;
+      @apply bg-slate-500 dark:bg-slate-900 shadow-none text-slate-900 dark:text-slate-400;
 
       &:not(:disabled):not(.ant-btn-disabled):hover {
-        @apply bg-slate-950 text-slate-300;
+        @apply bg-slate-400 dark:bg-slate-950 text-slate-900 dark:text-slate-400;
       }
     }
 

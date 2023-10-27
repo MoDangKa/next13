@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "configs", "ant-design", "others";
+
 @layer base {
   .h1,
   .h2,
@@ -18,18 +20,6 @@
     @apply mt-0 mb-0 font-medium leading-tight;
   }
 }
-
-@import "ant-design", "configs", "others";
-
-// @layer components {
-//   .ant-form-item__custom .ant-form-item-label > label {
-//     @apply text-slate-100;
-//   }
-
-//   .ant-input__custom {
-//     @apply text-black p-3 border border-slate-700 rounded-lg;
-//   }
-// }
 
 .h1,
 h1 {
@@ -62,14 +52,6 @@ h6 {
 }
 
 body {
-  font-size: 16px;
-  // font-weight: 300;
-  color: rgb(var(--foreground-rgb));
-  // background: linear-gradient(
-  //     to bottom,
-  //     transparent,
-  //     rgb(var(--background-end-rgb))
-  //   )
-  //   rgb(var(--background-start-rgb));
-  @apply bg-slate-500 dark:bg-slate-950;
+  // color: rgb(var(--foreground-rgb));
+  @apply bg-slate-200 dark:bg-slate-950 transition-all;
 }
