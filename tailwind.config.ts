@@ -17,6 +17,9 @@ const config: Config = {
         sans: ["var(--font-inter)"],
         prompt: ["var(--font-prompt)"],
       },
+      container: {
+        center: true,
+      },
     },
   },
   plugins: [],

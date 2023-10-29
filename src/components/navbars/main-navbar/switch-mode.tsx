@@ -19,25 +19,25 @@ function SwitchMode() {
   }, []);
 
   function handleClick() {
-    const colorTheme = localStorage.getItem("color-theme");
-    if (colorTheme) {
-      if (colorTheme === "light") {
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+      if (theme === "light") {
         document.documentElement.classList.add("dark");
-        localStorage.setItem("color-theme", "dark");
+        localStorage.setItem("theme", "dark");
         setIsCheck(false);
       } else {
         document.documentElement.classList.remove("dark");
-        localStorage.setItem("color-theme", "light");
+        localStorage.setItem("theme", "light");
         setIsCheck(true);
       }
     } else {
       if (document.documentElement.classList.contains("dark")) {
         document.documentElement.classList.remove("dark");
-        localStorage.setItem("color-theme", "light");
+        localStorage.setItem("theme", "light");
         setIsCheck(true);
       } else {
         document.documentElement.classList.add("dark");
-        localStorage.setItem("color-theme", "dark");
+        localStorage.setItem("theme", "dark");
         setIsCheck(false);
       }
     }

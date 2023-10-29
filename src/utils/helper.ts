@@ -21,3 +21,19 @@ export function getWithExpiry<T = unknown>(key: string, error: any = null) {
 
   return item.value as T;
 }
+
+export function screenMode(set?: (val: boolean) => void) {
+  let mode: boolean = false;
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+    mode = true;
+  } else {
+    document.documentElement.classList.remove("dark");
+    mode = false;
+  }
+  if (set) set(mode);
+}

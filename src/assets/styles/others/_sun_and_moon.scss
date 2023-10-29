@@ -64,20 +64,20 @@ $base-transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
         }
 
         &__decoration {
-          @apply top-[65%] translate-x-0 translate-y-1/2 w-[7px] h-[7px];
+          @apply top-[65%] translate-x-0 translate-y-1/2 w-[7px] h-[7px] rounded-bl-none rounded-br-none;
           animation: cloud 8s linear infinite;
 
           &::before,
           &::after {
-            @apply top-auto bottom-0 animate-none rounded-tl-full rounded-tr-full rounded-bl-none rounded-br-none w-1 h-1;
+            @apply top-auto bottom-0 animate-none rounded-tl-full rounded-tr-full;
           }
 
           &::before {
-            @apply -left-0.5 rounded-bl-full;
+            @apply -left-0.5 rounded-bl-full rounded-br-none w-[3px] h-[3px];
           }
 
           &::after {
-            @apply left-1.5 rounded-br-full;
+            @apply left-1.5 rounded-bl-none rounded-br-full w-1 h-1;
           }
         }
       }

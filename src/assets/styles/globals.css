@@ -109,17 +109,17 @@ html {
   @apply hidden;
 }
 .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration {
-  @apply top-[65%] translate-x-0 translate-y-1/2 w-[7px] h-[7px];
+  @apply top-[65%] translate-x-0 translate-y-1/2 w-[7px] h-[7px] rounded-bl-none rounded-br-none;
   animation: cloud 8s linear infinite;
 }
 .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
-  @apply top-auto bottom-0 animate-none rounded-tl-full rounded-tr-full rounded-bl-none rounded-br-none w-1 h-1;
+  @apply top-auto bottom-0 animate-none rounded-tl-full rounded-tr-full;
 }
 .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before {
-  @apply -left-0.5 rounded-bl-full;
+  @apply -left-0.5 rounded-bl-full rounded-br-none w-[3px] h-[3px];
 }
 .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
-  @apply left-1.5 rounded-br-full;
+  @apply left-1.5 rounded-bl-none rounded-br-full w-1 h-1;
 }
 
 @keyframes twinkle {
@@ -138,22 +138,22 @@ html {
     transform: translate(10%, -50%);
   }
 }
-@layer base {
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply mt-0 mb-0 font-medium leading-tight;
-  }
+@layer base {}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mt-0 mb-0 font-medium leading-tight;
 }
+
 .h1,
 h1 {
   font-size: calc(1.375rem + 1.5vw);
