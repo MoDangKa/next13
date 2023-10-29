@@ -1,5 +1,5 @@
 import "@/assets/styles/globals.css";
-import MainNavbar from "@/components/navbars/main-navbar";
+import LocaleAndMode from "@/components/locale-and-mode";
 import ToastProvider from "@/providers/toast-provider";
 import type { Metadata } from "next";
 import { Inter, Prompt } from "next/font/google";
@@ -32,7 +32,7 @@ export default async function RootLayout({
     <html lang="en" className={`${inter.variable} ${prompt.variable}`}>
       <body>
         <ToastProvider>
-          <MainNavbar />
+          <LocaleAndMode />
           {children}
         </ToastProvider>
       </body>

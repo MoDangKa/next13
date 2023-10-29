@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-function SwitchMode() {
+function ModeSwitchButton() {
   const [isCheck, setIsCheck] = useState<boolean>(false);
 
   useEffect(() => {
@@ -60,4 +60,4 @@ function SwitchMode() {
   );
 }
 
-export default SwitchMode;
+export default ModeSwitchButton;
