@@ -1,6 +1,6 @@
 import "@/assets/styles/globals.css";
 import Navbar from "@/components/navbar";
-import ToastProvider from "@/components/providers/toast-provider";
+import ToastProvider from "@/providers/toast-provider";
 import { ConfigProvider, ThemeConfig } from "antd";
 import type { Metadata } from "next";
 import { Inter, Prompt } from "next/font/google";

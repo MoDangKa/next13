@@ -1,6 +1,6 @@
 "use client";
 import FormOne from "@/components/forms/form-one";
-import { toastOptions } from "@/components/providers/toast-provider/config";
+import { toastOptions } from "@/providers/toast-provider/config";
 import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";

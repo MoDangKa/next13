@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 function SwitchMode() {
-  const [light, setLight] = useState<boolean>(false);
+  const [isCheck, setIsCheck] = useState<boolean>(false);
 
   useEffect(() => {
     if (
@@ -11,10 +11,10 @@ function SwitchMode() {
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       document.documentElement.classList.add("dark");
-      setLight(false);
+      setIsCheck(false);
     } else {
       document.documentElement.classList.remove("dark");
-      setLight(true);
+      setIsCheck(true);
     }
   }, []);
 
@@ -24,21 +24,21 @@ function SwitchMode() {
       if (colorTheme === "light") {
         document.documentElement.classList.add("dark");
         localStorage.setItem("color-theme", "dark");
-        setLight(false);
+        setIsCheck(false);
       } else {
         document.documentElement.classList.remove("dark");
         localStorage.setItem("color-theme", "light");
-        setLight(true);
+        setIsCheck(true);
       }
     } else {
       if (document.documentElement.classList.contains("dark")) {
         document.documentElement.classList.remove("dark");
         localStorage.setItem("color-theme", "light");
-        setLight(true);
+        setIsCheck(true);
       } else {
         document.documentElement.classList.add("dark");
         localStorage.setItem("color-theme", "dark");
-        setLight(false);
+        setIsCheck(false);
       }
     }
   }
@@ -46,10 +46,10 @@ function SwitchMode() {
   return (
     <div className="sun-and-moon">
       <input
+        id="sun-and-moon-checkbox"
         type="checkbox"
         className="sun-and-moon__input"
-        id="sun-and-moon-checkbox"
-        checked={light}
+        checked={isCheck}
         onChange={handleClick}
       />
       <label className="sun-and-moon__label" htmlFor="sun-and-moon-checkbox">

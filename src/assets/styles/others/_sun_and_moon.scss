@@ -73,7 +73,7 @@ $base-transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
           }
 
           &::before {
-            @apply -left-0.5;
+            @apply -left-0.5 rounded-bl-full;
           }
 
           &::after {

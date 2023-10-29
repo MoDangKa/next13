@@ -116,7 +116,7 @@ html {
   @apply top-auto bottom-0 animate-none rounded-tl-full rounded-tr-full rounded-bl-none rounded-br-none w-1 h-1;
 }
 .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before {
-  @apply -left-0.5;
+  @apply -left-0.5 rounded-bl-full;
 }
 .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
   @apply left-1.5 rounded-br-full;
@@ -185,5 +185,5 @@ h6 {
 }
 
 body {
-  @apply bg-slate-200 dark:bg-slate-950 transition-all;
+  @apply bg-blue-200 dark:bg-slate-950 transition-all;
 }/*# sourceMappingURL=globals.css.map */
