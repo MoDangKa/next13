@@ -1,7 +1,9 @@
 "use client";
 import FormOne from "@/components/forms/form-one";
+import { toastOptions } from "@/components/providers/toast-provider/config";
 import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 type FieldType = {
   username?: string;
@@ -20,14 +22,14 @@ function SignUpForm() {
       body: JSON.stringify({
         username: values.username,
         password: values.password,
-        confirmPassword: values.confirmPassword,
       }),
     });
 
     if (result.ok) {
+      toast.success("sign up success", toastOptions);
       router.push("/sign-in");
     } else {
-      alert("sign up failed");
+      toast.error("sign up failed", toastOptions);
     }
   }
 
@@ -49,7 +51,7 @@ function SignUpForm() {
           className="ant-form-item__custom"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
-          <Input className="ant-input__custom" />
+          <Input className="ant-input__custom" placeholder="Username" />
         </Form.Item>
         <Form.Item<FieldType>
           label="Password"
@@ -57,7 +59,10 @@ function SignUpForm() {
           className="ant-form-item__custom"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password className="ant-input__custom" />
+          <Input.Password
+            className="ant-input__custom"
+            placeholder="Password"
+          />
         </Form.Item>
         <Form.Item<FieldType>
           label="Confirm-Password"
@@ -70,14 +75,15 @@ function SignUpForm() {
                 if (!value || getFieldValue("password") === value) {
                   return Promise.resolve();
                 }
-                return Promise.reject(
-                  new Error("The new password that you entered do not match!")
-                );
+                return Promise.reject(new Error("Passwords do not match."));
               },
             }),
           ]}
         >
-          <Input.Password className="ant-input__custom" />
+          <Input.Password
+            className="ant-input__custom"
+            placeholder="Confirm password"
+          />
         </Form.Item>
       </div>
       <Button type="primary" htmlType="submit" className="ant-btn__custom">

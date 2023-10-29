@@ -1,5 +1,6 @@
 import "@/assets/styles/globals.css";
 import Navbar from "@/components/navbar";
+import ToastProvider from "@/components/providers/toast-provider";
 import { ConfigProvider, ThemeConfig } from "antd";
 import type { Metadata } from "next";
 import { Inter, Prompt } from "next/font/google";
@@ -44,8 +45,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${prompt.variable}`}>
       <body>
-        <Navbar />
-        <ConfigProvider theme={config}>{children}</ConfigProvider>
+        <ToastProvider>
+          <Navbar />
+          <ConfigProvider theme={config}>{children}</ConfigProvider>
+        </ToastProvider>
       </body>
     </html>
   );

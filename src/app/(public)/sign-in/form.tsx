@@ -1,7 +1,9 @@
 "use client";
 import FormOne from "@/components/forms/form-one";
+import { toastOptions } from "@/components/providers/toast-provider/config";
 import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 type FieldType = {
   username?: string;
@@ -23,14 +25,16 @@ function SignInForm() {
     });
 
     if (result.ok) {
+      toast.success("sign in success", toastOptions);
       router.push("/feed");
     } else {
-      alert("sign in failed");
+      toast.error("sign in failed", toastOptions);
     }
   }
 
   async function onFinishFailed(errorInfo: any) {
     console.log("Failed:", errorInfo);
+    toast.error("sign in failed", toastOptions);
   }
 
   return (
@@ -47,7 +51,7 @@ function SignInForm() {
           className="ant-form-item__custom"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
-          <Input className="ant-input__custom" />
+          <Input className="ant-input__custom" placeholder="Username" />
         </Form.Item>
         <Form.Item<FieldType>
           label="Password"
@@ -55,7 +59,10 @@ function SignInForm() {
           className="ant-form-item__custom"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password className="ant-input__custom" />
+          <Input.Password
+            className="ant-input__custom"
+            placeholder="Password"
+          />
         </Form.Item>
       </div>
       <Button type="primary" htmlType="submit" className="ant-btn__custom">

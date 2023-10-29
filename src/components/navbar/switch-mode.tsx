@@ -50,7 +50,7 @@ function SwitchMode() {
         className="sun-and-moon__input"
         id="sun-and-moon-checkbox"
         checked={light}
-        onClick={handleClick}
+        onChange={handleClick}
       />
       <label className="sun-and-moon__label" htmlFor="sun-and-moon-checkbox">
         <span className="sun-and-moon__indicator"></span>
