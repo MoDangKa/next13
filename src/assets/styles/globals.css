@@ -76,10 +76,7 @@
     @apply before:hidden after:inline-flex after:ms-1 after:content-["*"] after:visible;
   }
   .ant-form__sign-iu {
-    @apply flex flex-col gap-2 p-5 max-w-xs w-full rounded-lg text-white card;
-  }
-  .card {
-    @apply bg-slate-800 dark:bg-slate-700;
+    @apply flex flex-col gap-2 p-5 max-w-xs w-full card;
   }
   .ant-form-item__custom .ant-form-item-label > label {
     @apply text-slate-100;
@@ -173,5 +170,17 @@
     100% {
       transform: translate(10%, -50%);
     }
+  }
+  .toast-container__custom .Toastify__toast {
+    @apply rounded-lg card;
+  }
+  .toast-container__custom .Toastify__toast-body {
+    @apply mt-0 mb-1 text-sm font-light;
+  }
+  .toast-container__custom .Toastify__close-button {
+    @apply text-white;
+  }
+  .card {
+    @apply bg-slate-800 dark:bg-slate-700 text-white rounded-lg shadow-md shadow-slate-950/20;
   }
 }/*# sourceMappingURL=globals.css.map */

@@ -2,10 +2,10 @@ import "@/assets/styles/globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
 import { Inter, Prompt } from "next/font/google";
-import { ToastContainer } from "react-toastify";
-import "/node_modules/flag-icons/css/flag-icons.min.css";
-import "react-toastify/dist/ReactToastify.css";
 import { PropsWithChildren } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,10 +30,8 @@ export default async function AppLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={`${inter.variable} ${prompt.variable}`}>
       <body>
-        <ThemeProvider>
-          {children}
-          <ToastContainer />
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
+        <ToastContainer className="toast-container__custom" />
       </body>
     </html>
   );

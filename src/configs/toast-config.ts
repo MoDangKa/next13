@@ -6,11 +6,10 @@ export const toastOptions: ToastOptions = {
   position: toast.POSITION.TOP_RIGHT,
   //   icon: MyIcon,
   transition: Slide,
-  autoClose: 5000,
+  autoClose: 3000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: true,
-  draggable: true,
+  draggable: false,
   progress: undefined,
-  theme: "light",
 };

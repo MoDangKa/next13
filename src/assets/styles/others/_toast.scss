@@ -1,0 +1,15 @@
+.toast-container__custom {
+  .Toastify {
+    &__toast {
+      @apply rounded-lg card;
+    }
+
+    &__toast-body {
+      @apply mt-0 mb-1 text-sm font-light;
+    }
+
+    &__close-button {
+      @apply text-white;
+    }
+  }
+}

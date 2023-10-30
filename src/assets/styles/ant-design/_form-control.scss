@@ -14,12 +14,8 @@
   }
 
   &__sign-iu {
-    @apply flex flex-col gap-2 p-5 max-w-xs w-full rounded-lg text-white card;
+    @apply flex flex-col gap-2 p-5 max-w-xs w-full card;
   }
-}
-
-.card {
-  @apply bg-slate-800 dark:bg-slate-700;
 }
 
 .ant-form-item__custom .ant-form-item-label > label {
