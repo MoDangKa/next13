@@ -1,31 +1,30 @@
-.ant-form {
-  &__custom {
-    .ant-form-item-label > label {
-      @apply before:text-red-500 after:text-red-500 font-light;
-    }
-
-    &.ant-form-horizontal .ant-form-item-label > label {
-      @apply h-12;
-    }
-
-    &.ant-form-vertical .ant-form-item-label > label.ant-form-item-required {
-      @apply before:hidden after:inline-flex after:ms-1 after:content-['*'] after:visible;
-    }
+// Form
+.ant-form__custom {
+  &.ant-form-horizontal .ant-col.ant-form-item-label > label {
+    @apply h-12;
   }
 
-  &__sign-iu {
-    @apply flex flex-col gap-2 p-5 max-w-xs w-full card;
+  &.ant-form-vertical
+    .ant-col.ant-form-item-label
+    > label.ant-form-item-required {
+    @apply before:hidden after:inline-flex after:ms-1 after:content-['*'] after:visible;
   }
 }
 
-.ant-form-item__custom .ant-form-item-label > label {
-  @apply text-slate-100;
+// Form.Item
+.ant-form-item__custom
+  > .ant-row.ant-form-item-row
+  .ant-col.ant-form-item-label
+  > label {
+  @apply text-slate-100 before:text-red-500 after:text-red-500 font-light;
 }
 
+// Input
 .ant-input__custom {
-  @apply text-black p-3 border border-slate-700 rounded-lg;
+  @apply text-black px-3 border border-slate-700 rounded-lg h-12;
 }
 
+// Button
 .ant-btn {
   &__custom {
     @apply h-12 px-3 py-1 rounded-lg font-light;

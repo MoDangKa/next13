@@ -65,122 +65,125 @@
   }
 }
 @layer components {}
-@layer utilities {
-  .ant-form__custom .ant-form-item-label > label {
-    @apply before:text-red-500 after:text-red-500 font-light;
+@layer utilities {}
+.basic-form {
+  @apply flex flex-col gap-2 p-5 max-w-xs w-full basic-card;
+}
+
+.ant-form__custom.ant-form-horizontal .ant-col.ant-form-item-label > label {
+  @apply h-12;
+}
+.ant-form__custom.ant-form-vertical .ant-col.ant-form-item-label > label.ant-form-item-required {
+  @apply before:hidden after:inline-flex after:ms-1 after:content-["*"] after:visible;
+}
+
+.ant-form-item__custom > .ant-row.ant-form-item-row .ant-col.ant-form-item-label > label {
+  @apply text-slate-100 before:text-red-500 after:text-red-500 font-light;
+}
+
+.ant-input__custom {
+  @apply text-black px-3 border border-slate-700 rounded-lg h-12;
+}
+
+.ant-btn__custom {
+  @apply h-12 px-3 py-1 rounded-lg font-light;
+}
+.ant-btn__custom.ant-btn-primary {
+  @apply bg-slate-500 dark:bg-slate-900 shadow-none text-slate-900 dark:text-slate-400;
+}
+.ant-btn__custom.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  @apply bg-slate-400 dark:bg-slate-950 text-slate-900 dark:text-slate-400;
+}
+
+.basic-card {
+  @apply bg-slate-800 dark:bg-slate-700 text-white rounded-lg shadow-md shadow-slate-950/20;
+}
+
+.sun-and-moon {
+  @apply inline-block relative h-5;
+}
+.sun-and-moon__label {
+  @apply inline-block relative w-10 h-5 border border-zinc-500 bg-zinc-800 rounded-full cursor-pointer;
+  transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.sun-and-moon__indicator {
+  @apply block absolute top-1/2 left-1/2 w-[13px] h-[13px] -translate-y-1/2 -translate-x-[16px] bg-slate-500 rounded-full;
+  box-shadow: 10px 0px 0 0 rgba(0, 0, 0, 0.2) inset;
+  transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.sun-and-moon__indicator::before, .sun-and-moon__indicator::after {
+  @apply absolute content-[""] block bg-white rounded-full;
+  transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.sun-and-moon__indicator::before {
+  @apply top-[7px] left-[7px] w-1 h-1 opacity-20;
+}
+.sun-and-moon__indicator::after {
+  @apply top-0.5 left-0.5 w-[7px] h-[7px] opacity-40;
+}
+.sun-and-moon__decoration {
+  @apply absolute top-[70%] left-1/2 w-px h-px bg-white rounded-full;
+  animation: twinkle 0.8s infinite -0.6s;
+}
+.sun-and-moon__decoration::before, .sun-and-moon__decoration::after {
+  @apply block absolute content-[""] w-px h-px bg-white rounded-full;
+}
+.sun-and-moon__decoration::before {
+  @apply -top-2 left-[7px] opacity-100;
+  animation: twinkle 0.6s infinite;
+}
+.sun-and-moon__decoration::after {
+  @apply -top-[3px] left-[13px];
+  animation: twinkle 0.6s infinite -0.2s;
+}
+.sun-and-moon__input {
+  @apply invisible absolute;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label {
+  @apply bg-blue-300 border-sky-600;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator {
+  @apply shadow-none bg-amber-300 translate-x-[3px];
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator::before, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator::after {
+  @apply hidden;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration {
+  @apply top-[65%] translate-x-0 translate-y-1/2 w-[7px] h-[7px] rounded-bl-none rounded-br-none;
+  animation: cloud 8s linear infinite;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
+  @apply top-auto bottom-0 animate-none rounded-tl-full rounded-tr-full;
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before {
+  @apply -left-0.5 rounded-bl-full rounded-br-none w-[3px] h-[3px];
+}
+.sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
+  @apply left-1.5 rounded-bl-none rounded-br-full w-1 h-1;
+}
+
+@keyframes twinkle {
+  50% {
+    @apply opacity-20;
   }
-  .ant-form__custom.ant-form-horizontal .ant-form-item-label > label {
-    @apply h-12;
+}
+@keyframes cloud {
+  0% {
+    transform: translate(10%, -50%);
   }
-  .ant-form__custom.ant-form-vertical .ant-form-item-label > label.ant-form-item-required {
-    @apply before:hidden after:inline-flex after:ms-1 after:content-["*"] after:visible;
+  50% {
+    transform: translate(-40%, -50%);
   }
-  .ant-form__sign-iu {
-    @apply flex flex-col gap-2 p-5 max-w-xs w-full card;
+  100% {
+    transform: translate(10%, -50%);
   }
-  .ant-form-item__custom .ant-form-item-label > label {
-    @apply text-slate-100;
-  }
-  .ant-input__custom {
-    @apply text-black p-3 border border-slate-700 rounded-lg;
-  }
-  .ant-btn__custom {
-    @apply h-12 px-3 py-1 rounded-lg font-light;
-  }
-  .ant-btn__custom.ant-btn-primary {
-    @apply bg-slate-500 dark:bg-slate-900 shadow-none text-slate-900 dark:text-slate-400;
-  }
-  .ant-btn__custom.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
-    @apply bg-slate-400 dark:bg-slate-950 text-slate-900 dark:text-slate-400;
-  }
-  .sun-and-moon {
-    @apply inline-block relative h-5;
-  }
-  .sun-and-moon__label {
-    @apply inline-block relative w-10 h-5 border border-zinc-500 bg-zinc-800 rounded-full cursor-pointer;
-    transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
-  .sun-and-moon__indicator {
-    @apply block absolute top-1/2 left-1/2 w-[13px] h-[13px] -translate-y-1/2 -translate-x-[16px] bg-slate-500 rounded-full;
-    box-shadow: 10px 0px 0 0 rgba(0, 0, 0, 0.2) inset;
-    transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
-  .sun-and-moon__indicator::before, .sun-and-moon__indicator::after {
-    @apply absolute content-[""] block bg-white rounded-full;
-    transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
-  .sun-and-moon__indicator::before {
-    @apply top-[7px] left-[7px] w-1 h-1 opacity-20;
-  }
-  .sun-and-moon__indicator::after {
-    @apply top-0.5 left-0.5 w-[7px] h-[7px] opacity-40;
-  }
-  .sun-and-moon__decoration {
-    @apply absolute top-[70%] left-1/2 w-px h-px bg-white rounded-full;
-    animation: twinkle 0.8s infinite -0.6s;
-  }
-  .sun-and-moon__decoration::before, .sun-and-moon__decoration::after {
-    @apply block absolute content-[""] w-px h-px bg-white rounded-full;
-  }
-  .sun-and-moon__decoration::before {
-    @apply -top-2 left-[7px] opacity-100;
-    animation: twinkle 0.6s infinite;
-  }
-  .sun-and-moon__decoration::after {
-    @apply -top-[3px] left-[13px];
-    animation: twinkle 0.6s infinite -0.2s;
-  }
-  .sun-and-moon__input {
-    @apply invisible absolute;
-  }
-  .sun-and-moon__input:checked + .sun-and-moon__label {
-    @apply bg-blue-300 border-sky-600;
-  }
-  .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator {
-    @apply shadow-none bg-amber-300 translate-x-[3px];
-  }
-  .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator::before, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__indicator::after {
-    @apply hidden;
-  }
-  .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration {
-    @apply top-[65%] translate-x-0 translate-y-1/2 w-[7px] h-[7px] rounded-bl-none rounded-br-none;
-    animation: cloud 8s linear infinite;
-  }
-  .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before, .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
-    @apply top-auto bottom-0 animate-none rounded-tl-full rounded-tr-full;
-  }
-  .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::before {
-    @apply -left-0.5 rounded-bl-full rounded-br-none w-[3px] h-[3px];
-  }
-  .sun-and-moon__input:checked + .sun-and-moon__label .sun-and-moon__decoration::after {
-    @apply left-1.5 rounded-bl-none rounded-br-full w-1 h-1;
-  }
-  @keyframes twinkle {
-    50% {
-      @apply opacity-20;
-    }
-  }
-  @keyframes cloud {
-    0% {
-      transform: translate(10%, -50%);
-    }
-    50% {
-      transform: translate(-40%, -50%);
-    }
-    100% {
-      transform: translate(10%, -50%);
-    }
-  }
-  .toast-container__custom .Toastify__toast {
-    @apply rounded-lg card;
-  }
-  .toast-container__custom .Toastify__toast-body {
-    @apply mt-0 mb-1 text-sm font-light;
-  }
-  .toast-container__custom .Toastify__close-button {
-    @apply text-white;
-  }
-  .card {
-    @apply bg-slate-800 dark:bg-slate-700 text-white rounded-lg shadow-md shadow-slate-950/20;
-  }
+}
+.toast-container__custom .Toastify__toast {
+  @apply rounded-lg basic-card;
+}
+.toast-container__custom .Toastify__toast-body {
+  @apply mt-0 mb-1 text-sm font-light;
+}
+.toast-container__custom .Toastify__close-button {
+  @apply text-white;
 }/*# sourceMappingURL=globals.css.map */

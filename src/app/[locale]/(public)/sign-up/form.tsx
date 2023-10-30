@@ -47,7 +47,7 @@ function SignUpForm() {
     <Form
       form={form}
       name="sign-up-form"
-      className="ant-form__custom ant-form__sign-iu"
+      className="ant-form__custom basic-form"
       layout="vertical"
       initialValues={{ remember: true }}
       onFinish={onFinish}

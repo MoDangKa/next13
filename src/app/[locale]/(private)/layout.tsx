@@ -1,7 +1,5 @@
-export default function PrivateLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <main>{children}</main>;
+import { PropsWithChildren } from "react";
+
+export default function PrivateLayout({ children }: PropsWithChildren) {
+  return <>{children}</>;
 }

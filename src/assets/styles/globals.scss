@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  @import "configs";
+  @import "settings";
 
   .h1,
   .h2,
@@ -55,5 +55,6 @@
 }
 
 @layer utilities {
-  @import "ant-design", "others";
 }
+
+@import "elements", "components", "utilities", "shame";

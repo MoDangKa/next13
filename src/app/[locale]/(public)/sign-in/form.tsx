@@ -46,7 +46,7 @@ function SignInForm() {
     <Form
       form={form}
       name="sign-in-form"
-      className="ant-form__custom ant-form__sign-iu"
+      className="ant-form__custom basic-form"
       layout="vertical"
       initialValues={{ remember: true }}
       onFinish={onFinish}

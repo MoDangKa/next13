@@ -1,7 +1,7 @@
 .toast-container__custom {
   .Toastify {
     &__toast {
-      @apply rounded-lg card;
+      @apply rounded-lg basic-card;
     }
 
     &__toast-body {
