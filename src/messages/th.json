@@ -1,5 +1,19 @@
 {
-  "Home": {
+  "home": {
     "title": "สวัสดี Next13!"
+  },
+  "form": {
+    "username": "ชื่อผู้ใช้",
+    "password": "รหัสผ่าน",
+    "confirmPassword": "ยืนยันรหัสผ่าน"
+  },
+  "common": {
+    "signIn": "เข้าสู่ระบบ",
+    "signUp": "สมัครสมาชิก",
+    "signUp2": "สมัคร"
+  },
+  "toast": {
+    "success": "{msg}สำเร็จ",
+    "error": "{msg}ล้มเหลว"
   }
 }

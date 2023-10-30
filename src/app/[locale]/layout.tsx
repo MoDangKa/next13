@@ -1,6 +1,25 @@
+import "@/assets/styles/globals.css";
+import LocaleAndMode from "@/components/locale-and-mode";
+import ToastProvider from "@/providers/toast-provider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
+import { Inter, Prompt } from "next/font/google";
 import { notFound } from "next/navigation";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const prompt = Prompt({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin", "thai"],
+  display: "swap",
+  variable: "--font-prompt",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,8 +43,15 @@ export default async function LocaleLayout({
   }
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
-    </NextIntlClientProvider>
+    <html lang={locale} className={`${inter.variable} ${prompt.variable}`}>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ToastProvider>
+            <LocaleAndMode locale={locale} />
+            {children}
+          </ToastProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

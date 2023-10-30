@@ -1,7 +1,6 @@
 *,
 *::before,
 *::after {
-  // font-family: 'Prompt', sans-serif;
   font-family: var(--font-prompt), sans-serif;
 }
 
@@ -9,3 +8,6 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  @apply bg-blue-200 dark:bg-slate-950 transition-all;
+}

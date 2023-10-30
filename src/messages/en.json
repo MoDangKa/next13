@@ -1,5 +1,19 @@
 {
-  "Home": {
+  "home": {
     "title": "Hello Next13!"
+  },
+  "form": {
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password"
+  },
+  "common": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signUp2": "Sign Up"
+  },
+  "toast": {
+    "success": "{msg} success",
+    "error": "{msg} failed"
   }
 }
