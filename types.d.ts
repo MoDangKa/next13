@@ -4,3 +4,5 @@ type Todo = {
   title: string;
   completed: boolean;
 };
+
+type Locale = "en" | "th";

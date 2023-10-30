@@ -3,7 +3,7 @@ import { usePathname, useRouter } from "next-intl/client";
 
 type BTNFlagProps = {
   lang: "en" | "th";
-  locale: "en" | "th";
+  locale: Locale;
 };
 
 export default function BTNFlag({ lang, locale }: BTNFlagProps) {

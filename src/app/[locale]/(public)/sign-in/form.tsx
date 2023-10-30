@@ -1,5 +1,5 @@
 "use client";
-import { toastOptions } from "@/providers/toast-provider/config";
+import { toastOptions } from "@/configs/toast-config";
 import { Button, Form, Input } from "antd";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -40,10 +40,6 @@ function SignInForm() {
       toast.error(t("toast.error", { msg: t("common.signIn") }), toastOptions);
       onReset();
     }
-  }
-
-  async function onFinishFailed(errorInfo: any) {
-    console.log("Failed:", errorInfo);
   }
 
   return (
