@@ -25,8 +25,10 @@ export async function POST(request: Request) {
     .setSubject(user.id)
     .setIssuedAt()
     .setExpirationTime("2w")
-    .sign(new TextEncoder().encode("my-jwt-secret"));
+    .sign(new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET));
+
   const response = NextResponse.json({ msg: "login success" });
+
   response.cookies.set("jwt-token", token, {
     sameSite: "strict",
     httpOnly: true,
