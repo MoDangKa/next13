@@ -2,6 +2,7 @@
 const withNextIntl = require("next-intl/plugin")("./i18n.ts");
 
 const nextConfig = withNextIntl({
+  // output: "export",
   reactStrictMode: false,
   async rewrites() {
     return [

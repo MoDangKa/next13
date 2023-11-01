@@ -2,7 +2,7 @@
 import { toastOptions } from "@/configs/toast-config";
 import { Button, Form, Input } from "antd";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
 import { toast } from "react-toastify";
 
 type FieldType = {
@@ -10,8 +10,9 @@ type FieldType = {
   password?: string;
 };
 
-function SignInForm() {
+export default function SignInForm() {
   const router = useRouter();
+
   const t = useTranslations();
   const [form] = Form.useForm();
 
@@ -31,11 +32,11 @@ function SignInForm() {
     });
 
     if (result.ok) {
+      router.push("/feed");
       toast.success(
         t("toast.success", { msg: t("common.signIn") }),
         toastOptions
       );
-      router.push("/feed");
     } else {
       toast.error(t("toast.error", { msg: t("common.signIn") }), toastOptions);
       onReset();
@@ -84,5 +85,3 @@ function SignInForm() {
     </Form>
   );
 }
-
-export default SignInForm;

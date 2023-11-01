@@ -1,3 +1,4 @@
+import { languages } from "@/configs/language";
 import {
   NextFetchEvent,
   NextMiddleware,
@@ -5,8 +6,9 @@ import {
   NextResponse,
 } from "next/server";
 
-const defaultLocale = "en";
-const regex = new RegExp("^/((?!api|_next|_vercel|en|th|.*\\..*).*)");
+const defaultLocale = languages[0];
+const avoid = ["api", "_next", "_vercel"].concat(languages).join("|");
+const regex = new RegExp(`^/((?!${avoid}|.*\\..*).*)`);
 
 export function withLocalization(middleware: NextMiddleware) {
   return async (request: NextRequest, event: NextFetchEvent) => {

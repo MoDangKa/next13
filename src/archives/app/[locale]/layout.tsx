@@ -1,4 +1,4 @@
-import LocaleAndTheme from "@/components/locale-and-theme";
+import LocaleAndTheme from "@/components/locale-switcher";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";

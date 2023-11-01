@@ -1,9 +1,12 @@
 "use client";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function Home() {
   const t = useTranslations();
+  const params = useParams();
+  const locale = params?.locale as string;
 
   return (
     <main className="flex min-h-screen items-center justify-center">
@@ -14,6 +17,7 @@ export default function Home() {
         <div>
           <Link
             href="/sign-in"
+            locale={locale}
             className=" bg-slate-900 my-4 p-3 rounded-lg block text-center"
           >
             {t("common.signIn")}
@@ -22,6 +26,7 @@ export default function Home() {
         <div>
           <Link
             href="/sign-up"
+            locale={locale}
             className=" bg-slate-900 my-4 p-3 rounded-lg block text-center"
           >
             {t("common.signUp")}

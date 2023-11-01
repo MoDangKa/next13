@@ -2,7 +2,7 @@
 import { toastOptions } from "@/configs/toast-config";
 import { Button, Form, Input } from "antd";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
 import { toast } from "react-toastify";
 
 type FieldType = {
@@ -32,11 +32,11 @@ function SignUpForm() {
     });
 
     if (result.ok) {
+      router.push("/sign-in");
       toast.success(
         t("toast.success", { msg: t("common.signUp") }),
         toastOptions
       );
-      router.push("/sign-in");
     } else {
       toast.error(t("toast.error", { msg: t("common.signUp") }), toastOptions);
       onReset();

@@ -2,7 +2,7 @@
 import { toastOptions } from "@/configs/toast-config";
 import { Button, Form, Input } from "antd";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
 import { toast } from "react-toastify";
 
 type FieldType = {
@@ -20,8 +20,6 @@ function SignInForm() {
   }
 
   async function onFinish(values: FieldType) {
-    console.log("Success:", values);
-
     const result = await fetch("/api/sign-in", {
       method: "post",
       body: JSON.stringify({
