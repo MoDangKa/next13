@@ -12,7 +12,7 @@ export default function BTNFlag({ lang, locale, onClick }: BTNFlagProps) {
       }`}
       onClick={() => onClick(lang)}
     >
-      <span className={`fi fi-${lang === "en" ? "us" : "th"} !w-6 !h-6`} />
+      <span className={`fi fi-${lang === "en" ? "us" : lang} !w-6 !h-6`} />
     </button>
   );
 }
