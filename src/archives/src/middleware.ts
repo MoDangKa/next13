@@ -10,7 +10,7 @@
 //   matcher: ["/", "/(th|en)/:path*"],
 // };
 
-import { chain, withAuthentication, withLocalization } from "./middlewares";
+import { chain, withAuthentication, withLocalization } from "./src/middlewares";
 
 export default chain([withLocalization, withAuthentication]);
 
