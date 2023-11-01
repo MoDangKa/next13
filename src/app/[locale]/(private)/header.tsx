@@ -1,16 +1,17 @@
-"use client"
+"use client";
 import useSWR from "swr";
 
 const fetcher = async (url: RequestInfo | URL) => {
-  const result = await fetch(url);
-  if (result.ok) {
+  const res = await fetch(url);
+  if (!res.ok) {
     const msg = "An error occurred while fetching";
-    const info = await result.json();
-    const status = result.status;
+    const info = await res.json();
+    const status = res.status;
     const error = new Error(msg);
     console.error(info, status);
     throw error;
   }
+  return res.json();
 };
 
 export default function Header() {
@@ -20,5 +21,5 @@ export default function Header() {
 
   console.log(data);
 
-  return <header>Header</header>;
+  return <header>{data.data.username}</header>;
 }

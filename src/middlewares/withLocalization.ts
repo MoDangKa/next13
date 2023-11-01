@@ -1,4 +1,4 @@
-import { languages } from "@/configs/language";
+import { languages } from "@/configs/language-config";
 import {
   NextFetchEvent,
   NextMiddleware,
