@@ -1,9 +1,14 @@
 "use client";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
   const t = useTranslations();
+
+  useEffect(() => {
+    console.log("NEXT_PUBLIC_ENV:", process.env.NEXT_PUBLIC_ENV);
+  });
 
   return (
     <main className="flex min-h-screen items-center justify-center">

@@ -10,14 +10,26 @@ export async function POST(request: Request) {
     [json.username]
   );
 
+  const jwtToken = process.env.NEXT_PUBLIC_JWT_TOKEN!;
+
   if (result.rowCount === 0) {
-    return NextResponse.json({ error: "user not found" }, { status: 404 });
+    const response = NextResponse.json(
+      { error: "user not found" },
+      { status: 404 }
+    );
+    response.cookies.delete(jwtToken);
+    return response;
   }
 
   const user = result.rows[0];
   const match = await bcrypt.compare(json.password, user.password);
   if (!match) {
-    return NextResponse.json({ error: "invalid credentials" }, { status: 401 });
+    const response = NextResponse.json(
+      { error: "invalid credentials" },
+      { status: 401 }
+    );
+    response.cookies.delete(jwtToken);
+    return response;
   }
 
   const token = await new SignJWT({})
@@ -29,7 +41,7 @@ export async function POST(request: Request) {
 
   const response = NextResponse.json({ msg: "login success" });
 
-  response.cookies.set("jwt-token", token, {
+  response.cookies.set(jwtToken, token, {
     sameSite: "strict",
     httpOnly: true,
     secure: true,

@@ -7,6 +7,11 @@ import "react-toastify/dist/ReactToastify.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { ToastContainer } from "react-toastify";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const prompt = Prompt({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -23,7 +28,7 @@ export const metadata: Metadata = {
 
 export default async function AppLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={prompt.variable}>
+    <html lang="en" className={`${inter.variable} ${prompt.variable}`}>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
         <ToastContainer className="toast-container__custom" />

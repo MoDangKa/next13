@@ -1,16 +1,15 @@
-import { loadEnvConfig } from "@next/env";
+// import { loadEnvConfig } from "@next/env";
 import pg, { ClientConfig, QueryResult } from "pg";
 
-// use case .env or .env.local
+// use case is for [.env] or [.env.local]
 // const projectDir = process.cwd();
 // loadEnvConfig(projectDir);
 
 export async function Client(): Promise<pg.Client> {
   if (process.env.NEXT_PUBLIC_URL) {
-    const config: ClientConfig = {
+    const client = new pg.Client({
       connectionString: process.env.NEXT_PUBLIC_URL + "?sslmode=require",
-    };
-    const client = new pg.Client(config);
+    });
     return client;
   }
   const config: ClientConfig = {

@@ -1,11 +1,7 @@
-import createMiddleware from "next-intl/middleware";
+import { chain, withAuthentication, withLocalization } from "./middlewares";
 
-export default createMiddleware({
-  locales: ["en", "th"],
-  defaultLocale: "en",
-  localePrefix: "always",
-});
+export default chain([withLocalization, withAuthentication]);
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: "/:path*",
 };
