@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from 'next-intl/link';
 
 type UserProps = {
   user: UserI;
@@ -26,7 +26,7 @@ function User({ user, href }: UserProps) {
             <div className="bg-slate-600 rounded-full mr-3 w-[50px] h-[50px]"></div>
           )}
         </div>
-        <div>{user.username}</div>
+        <div className="text-white">{user.username}</div>
       </Link>
     </div>
   );
