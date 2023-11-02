@@ -9,7 +9,10 @@ import {
 export function withAuthentication(middleware: NextMiddleware) {
   return async (request: NextRequest, event: NextFetchEvent) => {
     const pathname = request.nextUrl.pathname;
-    const authenticatedAPIRoutes = [pathname.startsWith("/api/users")];
+    const authenticatedAPIRoutes = [
+      pathname.startsWith("/api/users"),
+      pathname.startsWith("/api/posts"),
+    ];
 
     if (authenticatedAPIRoutes.includes(true)) {
       const cookie = request.cookies.get(process.env.NEXT_PUBLIC_JWT_TOKEN!);
@@ -25,10 +28,7 @@ export function withAuthentication(middleware: NextMiddleware) {
         await jwtVerify(cookie.value, secret);
       } catch (error) {
         console.error(error);
-        return NextResponse.json(
-          { error: "internal server error" },
-          { status: 500 }
-        );
+        return NextResponse.json({ error: "unauthenticated" }, { status: 401 });
       }
     }
 
