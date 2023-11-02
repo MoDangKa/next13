@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from 'next-intl/link';
+import Link from "next-intl/link";
+import Avatar from "./avatar";
 
 type UserProps = {
   user: UserI;
@@ -11,21 +11,9 @@ function User({ user, href }: UserProps) {
     <div>
       <Link
         href={`/${href || user.username}`}
-        className="flex flex-row items-center"
+        className="flex flex-row gap-3 items-center"
       >
-        <div>
-          {user.avatar ? (
-            <Image
-              alt={user.username}
-              src={user.avatar}
-              width={50}
-              height={50}
-              className="rounded-full mr3"
-            />
-          ) : (
-            <div className="bg-slate-600 rounded-full mr-3 w-[50px] h-[50px]"></div>
-          )}
-        </div>
+        <Avatar alt={user.username} src={user.avatar} />
         <div className="text-white">{user.username}</div>
       </Link>
     </div>

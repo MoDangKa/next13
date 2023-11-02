@@ -4,7 +4,7 @@ type BTNFlagProps = {
   onClick(lang: Locale): void;
 };
 
-export default function BTNFlag({ lang, locale, onClick }: BTNFlagProps) {
+function BTNFlag({ lang, locale, onClick }: BTNFlagProps) {
   return (
     <button
       className={`overflow-hidden rounded-full w-5 h-5 grid place-content-center border bg-zinc-50 border-zinc-50 dark:border-zinc-500 ${
@@ -16,3 +16,5 @@ export default function BTNFlag({ lang, locale, onClick }: BTNFlagProps) {
     </button>
   );
 }
+
+export default BTNFlag;

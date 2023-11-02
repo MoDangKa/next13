@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import BTNFlag from "./btn-flag";
 import BTNToggleMode from "./btn-toggle-theme";
 
-export default function LocaleSwitcher() {
+function LocaleSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
@@ -24,3 +24,5 @@ export default function LocaleSwitcher() {
     </nav>
   );
 }
+
+export default LocaleSwitcher;

@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "@/providers/theme-provider";
 
-export default function BTNToggleMode() {
+function BTNToggleMode() {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -20,3 +20,5 @@ export default function BTNToggleMode() {
     </div>
   );
 }
+
+export default BTNToggleMode;

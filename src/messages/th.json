@@ -1,7 +1,6 @@
 {
-  "home": {
-    "title": "สวัสดี Next13!"
-  },
+  "projectName": "Next13",
+  "homeTitle": "สวัสดี {msg}!",
   "form": {
     "username": "ชื่อผู้ใช้",
     "password": "รหัสผ่าน",
@@ -10,7 +9,12 @@
   "common": {
     "signIn": "เข้าสู่ระบบ",
     "signUp": "สมัครสมาชิก",
-    "signUp2": "สมัคร"
+    "signUp2": "สมัคร",
+    "loadMore": "โหลดเพิ่มเติม",
+    "feed": "ฟีด",
+    "profile": "โปรไฟล์",
+    "following": "กำลังติดตาม",
+    "followers": "ผู้ติดตาม"
   },
   "toast": {
     "success": "{msg}สำเร็จ",

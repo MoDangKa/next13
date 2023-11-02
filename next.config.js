@@ -12,7 +12,7 @@ const nextConfig = withNextIntl({
     ];
   },
   images: {
-    domains: ["avatars.githubusercontent.com"],
+    domains: ["avatars.githubusercontent.com", "cloudflare-ipfs.com"],
   },
 });
 

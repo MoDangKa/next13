@@ -12,7 +12,6 @@ type FieldType = {
 
 export default function SignInForm() {
   const router = useRouter();
-
   const t = useTranslations();
   const [form] = Form.useForm();
 
@@ -21,8 +20,6 @@ export default function SignInForm() {
   }
 
   async function onFinish(values: FieldType) {
-    console.log("Success:", values);
-
     const result = await fetch("/api/sign-in", {
       method: "post",
       body: JSON.stringify({
@@ -59,7 +56,7 @@ export default function SignInForm() {
         </h1>
       </div>
       <div className="my-3">
-        <hr className="border-t-slate-700 dark:border-t-slate-600" />
+        <hr className="border-t-slate-500 dark:border-t-slate-600" />
       </div>
       <div>
         <Form.Item<FieldType>

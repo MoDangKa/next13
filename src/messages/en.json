@@ -1,7 +1,6 @@
 {
-  "home": {
-    "title": "Hello Next13!"
-  },
+  "projectName": "Next13",
+  "homeTitle": "Hello {msg}!",
   "form": {
     "username": "Username",
     "password": "Password",
@@ -10,7 +9,12 @@
   "common": {
     "signIn": "Sign In",
     "signUp": "Sign Up",
-    "signUp2": "Sign Up"
+    "signUp2": "Sign Up",
+    "loadMore": "Load More",
+    "feed": "Feed",
+    "profile": "Profile",
+    "following": "Following",
+    "followers": "Followers"
   },
   "toast": {
     "success": "{msg} success",

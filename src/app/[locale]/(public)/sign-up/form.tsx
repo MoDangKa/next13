@@ -21,8 +21,6 @@ function SignUpForm() {
   }
 
   async function onFinish(values: FieldType) {
-    console.log("Success:", values);
-
     const result = await fetch("/api/sign-up", {
       method: "post",
       body: JSON.stringify({
@@ -59,7 +57,7 @@ function SignUpForm() {
         </h1>
       </div>
       <div className="my-3">
-        <hr className="border-t-slate-700 dark:border-t-slate-600" />
+        <hr className="border-t-slate-500 dark:border-t-slate-600" />
       </div>
       <div>
         <Form.Item<FieldType>

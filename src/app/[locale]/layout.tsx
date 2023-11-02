@@ -2,18 +2,9 @@ import LocaleSwitcher from "@/components/locale-switcher";
 import { languages } from "@/configs/language-config";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { Prompt } from "next/font/google";
 import { notFound } from "next/navigation";
 import { PropsWithChildren } from "react";
 import { ToastContainer } from "react-toastify";
-
-const prompt = Prompt({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
-  subsets: ["latin", "thai"],
-  display: "swap",
-  variable: "--font-prompt",
-});
 
 export const metadata: Metadata = {
   title: "Next13",
@@ -36,21 +27,17 @@ export async function generateStaticParams() {
   return languages.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
+export default async function HomeLayout({
   children,
   params: { locale },
 }: PropsWithChildren<LocaleLayoutProps>) {
   const messages = await getMessages(locale);
 
   return (
-    <html lang={locale} className={prompt.variable}>
-      <body>
-        <LocaleSwitcher />
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-          <ToastContainer className="toast-container__custom" />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <LocaleSwitcher />
+      {children}
+      <ToastContainer className="toast-container__custom" />
+    </NextIntlClientProvider>
   );
 }

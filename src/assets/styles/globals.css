@@ -23,7 +23,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-blue-200 dark:bg-slate-950 transition-all;
+    @apply bg-blue-200 dark:bg-slate-950 transition-all font-light;
   }
   .h1,
   .h2,
@@ -89,14 +89,14 @@
   @apply h-12 px-3 py-1 rounded-lg font-light;
 }
 .ant-btn__custom.ant-btn-primary {
-  @apply bg-slate-500 dark:bg-slate-900 shadow-none text-slate-900 dark:text-slate-400;
+  @apply bg-slate-400 dark:bg-slate-900 shadow-none text-slate-900 dark:text-slate-400;
 }
 .ant-btn__custom.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
-  @apply bg-slate-400 dark:bg-slate-950 text-slate-900 dark:text-slate-400;
+  @apply bg-slate-500 dark:bg-slate-950 text-slate-900 dark:text-slate-400;
 }
 
 .basic-card {
-  @apply bg-slate-800 dark:bg-slate-700 text-white rounded-lg shadow-md shadow-slate-950/20;
+  @apply bg-slate-700 dark:bg-slate-800 text-white rounded-lg shadow-md shadow-slate-950/20;
 }
 
 .sun-and-moon {
