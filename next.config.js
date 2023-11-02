@@ -11,6 +11,9 @@ const nextConfig = withNextIntl({
       },
     ];
   },
+  images: {
+    domains: ["avatars.githubusercontent.com"],
+  },
 });
 
 module.exports = nextConfig;

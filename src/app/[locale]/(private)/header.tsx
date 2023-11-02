@@ -1,32 +1,20 @@
 "use client";
-import { useTheme } from "@/providers/theme-provider";
+import User from "@/components/user";
 import useSWR from "swr";
 
-const fetcher = async (url: RequestInfo | URL) => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    const msg = "An error occurred while fetching";
-    const info = await res.json();
-    const status = res.status;
-    const error = new Error(msg);
-    console.error(info, status);
-    throw error;
-  }
-  return res.json();
-};
-
 export default function Header() {
-  const { theme, toggleTheme } = useTheme();
-  const { data, error, isLoading } = useSWR("/api/users/profile", fetcher);
+  const { data, error, isLoading } = useSWR("/api/users/profile");
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div> loading...</div>;
 
-  console.log(data);
-
   return (
-    <header>
-      <h1>{data.data.username}</h1>
-      <p>{theme}</p>
+    <header className="w-full py-5 bg-slate-800">
+      <div className="container px-2 sm:px-0 flex flex-row justify-between items-center">
+        <div>
+          <h1 className="text-white">Next13</h1>
+        </div>
+        <User user={data.data} href="account" />
+      </div>
     </header>
   );
 }
