@@ -8,13 +8,11 @@ export default function Header() {
   if (isLoading) return <div> loading...</div>;
 
   return (
-    <header className="w-full py-5 bg-slate-800">
-      <div className="container px-2 sm:px-0 flex flex-row justify-between items-center">
-        <div>
-          <h1 className="text-white">Next13</h1>
-        </div>
-        <User user={data.data} href="account" />
+    <header className="flex flex-row justify-between items-center w-full p-5 my-2 bg-slate-800 rounded-lg">
+      <div>
+        <h1 className="text-white">Next13</h1>
       </div>
+      <User user={data.data} href="account" />
     </header>
   );
 }
