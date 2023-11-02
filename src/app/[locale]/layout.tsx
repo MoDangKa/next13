@@ -1,5 +1,5 @@
+import LocaleSwitcher from "@/components/locale-switcher";
 import { languages } from "@/configs/language-config";
-import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { Prompt } from "next/font/google";
@@ -45,12 +45,11 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={prompt.variable}>
       <body>
-        <ThemeProvider>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </ThemeProvider>
-        <ToastContainer className="toast-container__custom" />
+        <LocaleSwitcher />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+          <ToastContainer className="toast-container__custom" />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
