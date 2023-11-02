@@ -1,8 +1,8 @@
 "use client";
 import { usePathname, useRouter } from "next-intl/client";
+import { useParams } from "next/navigation";
 import BTNFlag from "./btn-flag";
 import BTNToggleMode from "./btn-toggle-theme";
-import { useParams } from "next/navigation";
 
 export default function LocaleSwitcher() {
   const router = useRouter();

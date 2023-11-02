@@ -21,3 +21,7 @@ export function getWithExpiry<T = unknown>(key: string, error: any = null) {
 
   return item.value as T;
 }
+
+export function capitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
