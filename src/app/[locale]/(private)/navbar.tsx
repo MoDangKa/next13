@@ -2,7 +2,7 @@ import { capitalizeFirstLetter } from "@/util/helper";
 import { usePathname } from "next-intl/client";
 import Link from "next-intl/link";
 
-const links: string[] = ["feed", "profile", "following", "followers"];
+const links = ["feed", "profile", "following", "followers"];
 
 export default function Navbar() {
   const pathname = usePathname();
