@@ -14,8 +14,6 @@ export default function LocaleSwitcher() {
     router.replace(pathname, { locale: lang });
   }
 
-  console.log("first");
-
   return (
     <nav className="container top-2 left-1/2 -translate-x-1/2 absolute pointer-events-none flex justify-end">
       <div className="flex flex-row gap-2 px-2 sm:px-0 z-50 relative max-w-fit pointer-events-auto">
