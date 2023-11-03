@@ -7,6 +7,7 @@ type PostProps = { post: PostI };
 function Post({ post }: PostProps) {
   const format = useFormatter();
   const dateTime = new Date(post.created_at);
+
   //   const options: Intl.DateTimeFormatOptions = {
   //     year: "numeric",
   //     month: "long",
@@ -16,6 +17,7 @@ function Post({ post }: PostProps) {
   //   };
   //   const createdAt = new Date(post.created_at);
   // createdAt.toLocaleDateString("en-us", options)}
+
   return (
     <div className="flex flex-row gap-3">
       <Link href={`/${post.username}`} className="grow-0 shrink-0">

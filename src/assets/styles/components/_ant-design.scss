@@ -4,10 +4,11 @@
     @apply h-12;
   }
 
-  &.ant-form-vertical
-    .ant-col.ant-form-item-label
+  &.ant-form-vertical .ant-col.ant-form-item-label {
+    @apply pb-1;
     > label.ant-form-item-required {
-    @apply before:hidden after:inline-flex after:ms-1 after:content-['*'] after:visible;
+      @apply before:hidden after:inline-flex after:ms-1 after:content-['*'] after:visible;
+    }
   }
 }
 
@@ -21,7 +22,11 @@
 
 // Input
 .ant-input__custom {
-  @apply text-black px-3 border border-slate-700 rounded-lg h-12;
+  @apply text-black px-3 border border-slate-700 rounded-lg font-prompt h-12;
+}
+
+textarea.ant-input__custom {
+  @apply min-h-[3rem];
 }
 
 // Button

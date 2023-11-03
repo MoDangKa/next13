@@ -3,7 +3,8 @@ import { ToastOptions, toast, Slide } from "react-toastify";
 
 export const toastOptions: ToastOptions = {
   //   type: toast.TYPE.SUCCESS,
-  position: toast.POSITION.TOP_RIGHT,
+  // position: toast.POSITION.TOP_RIGHT,
+  position: "top-right",
   //   icon: MyIcon,
   transition: Slide,
   autoClose: 3000,

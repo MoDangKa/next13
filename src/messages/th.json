@@ -4,7 +4,8 @@
   "form": {
     "username": "ชื่อผู้ใช้",
     "password": "รหัสผ่าน",
-    "confirmPassword": "ยืนยันรหัสผ่าน"
+    "confirmPassword": "ยืนยันรหัสผ่าน",
+    "error": { "pattern1": "กรุณากรอก{msg}!" }
   },
   "common": {
     "signIn": "เข้าสู่ระบบ",
@@ -14,7 +15,12 @@
     "feed": "ฟีด",
     "profile": "โปรไฟล์",
     "following": "กำลังติดตาม",
-    "followers": "ผู้ติดตาม"
+    "followers": "ผู้ติดตาม",
+    "whatIsHappening": "เกิดอะไรขึ้น",
+    "post": "โพสต์",
+    "post2": "โพสต์",
+    "content": "เนื้อหา",
+    "content2": "เนื้อหา"
   },
   "toast": {
     "success": "{msg}สำเร็จ",

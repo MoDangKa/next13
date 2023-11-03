@@ -50,20 +50,21 @@ export default function SignInForm() {
       onFinish={onFinish}
       autoComplete="off"
     >
-      <div className="text-center">
-        <h1 className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          {t("common.signIn")}
-        </h1>
-      </div>
-      <div className="my-3">
-        <hr className="border-t-slate-500 dark:border-t-slate-600" />
-      </div>
+      <h1 className="text-center text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+        {t("common.signIn")}
+      </h1>
+      <hr className="my-3" />
       <div>
         <Form.Item<FieldType>
           label={t("form.username")}
           name="username"
           className="ant-form-item__custom"
-          rules={[{ required: true, message: "Please input your username!" }]}
+          rules={[
+            {
+              required: true,
+              message: t("form.error.pattern1", { msg: t("form.username") }),
+            },
+          ]}
         >
           <Input className="ant-input__custom" />
         </Form.Item>
@@ -71,14 +72,21 @@ export default function SignInForm() {
           label={t("form.password")}
           name="password"
           className="ant-form-item__custom"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[
+            {
+              required: true,
+              message: t("form.error.pattern1", { msg: t("form.password") }),
+            },
+          ]}
         >
           <Input.Password className="ant-input__custom" />
         </Form.Item>
       </div>
-      <Button type="primary" htmlType="submit" className="ant-btn__custom">
-        {t("common.signIn")}
-      </Button>
+      <div>
+        <Button type="primary" htmlType="submit" className="ant-btn__custom">
+          {t("common.signIn")}
+        </Button>
+      </div>
     </Form>
   );
 }

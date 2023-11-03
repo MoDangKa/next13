@@ -1,5 +1,6 @@
-import SignUpForm from "./form";
+"use client";
+import SignUpForm from "@/components/forms/sign-up-form";
 
-export default async function SignUp() {
+export default function SignUp() {
   return <SignUpForm />;
 }

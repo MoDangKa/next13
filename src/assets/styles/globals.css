@@ -73,6 +73,9 @@
 .ant-form__custom.ant-form-horizontal .ant-col.ant-form-item-label > label {
   @apply h-12;
 }
+.ant-form__custom.ant-form-vertical .ant-col.ant-form-item-label {
+  @apply pb-1;
+}
 .ant-form__custom.ant-form-vertical .ant-col.ant-form-item-label > label.ant-form-item-required {
   @apply before:hidden after:inline-flex after:ms-1 after:content-["*"] after:visible;
 }
@@ -82,7 +85,11 @@
 }
 
 .ant-input__custom {
-  @apply text-black px-3 border border-slate-700 rounded-lg h-12;
+  @apply text-black px-3 border border-slate-700 rounded-lg font-prompt h-12;
+}
+
+textarea.ant-input__custom {
+  @apply min-h-[3rem];
 }
 
 .ant-btn__custom {
@@ -96,7 +103,10 @@
 }
 
 .basic-card {
-  @apply bg-slate-700 dark:bg-slate-800 text-white rounded-lg shadow-md shadow-slate-950/20;
+  @apply bg-slate-700 dark:bg-slate-800 text-white rounded-lg;
+}
+.basic-card hr {
+  @apply border-t-slate-500 dark:border-t-slate-600;
 }
 
 .sun-and-moon {

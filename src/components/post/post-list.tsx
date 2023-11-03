@@ -1,12 +1,15 @@
 import Post from "@/components/post";
 import useSWR from "swr";
 
-type FeedListProps = {
+type PostListProps = {
   index: number;
+  username: string;
 };
 
-export default function FeedList({ index }: FeedListProps) {
-  const { data, error, isLoading } = useSWR("/api/posts/feed?page=" + index);
+export default function PostList({ index, username }: PostListProps) {
+  const { data, error, isLoading } = useSWR(
+    `/api/posts?page=${index}&username=${username}`
+  );
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;

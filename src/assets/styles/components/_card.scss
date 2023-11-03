@@ -1,3 +1,7 @@
 .basic-card {
-  @apply bg-slate-700 dark:bg-slate-800 text-white rounded-lg shadow-md shadow-slate-950/20;
+  @apply bg-slate-700 dark:bg-slate-800 text-white rounded-lg;
+
+  hr {
+    @apply border-t-slate-500 dark:border-t-slate-600;
+  }
 }
