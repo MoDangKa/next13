@@ -1,8 +1,8 @@
 import { ClientQuery } from "@/scripts/db";
 import bcrypt from "bcrypt";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   const json = await request.json();
   const result = await ClientQuery(
     "select id, username from users where username ilike $1",

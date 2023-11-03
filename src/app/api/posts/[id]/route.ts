@@ -1,9 +1,9 @@
 import { ClientQuery } from "@/scripts/db";
 import { getJWTPayload } from "@/util/auth";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: number } }
 ) {
   const jwtPayload = await getJWTPayload();
@@ -19,7 +19,7 @@ export async function GET(
 }
 
 export async function PATCH(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: number } }
 ) {
   const body = await request.json();
@@ -29,7 +29,7 @@ export async function PATCH(
     "select * from posts where user_id = $1 and id = $2",
     [jwtPayload.sub, params.id]
   );
-  
+
   if (result.rowCount === 0) {
     return NextResponse.json({ error: "not found" }, { status: 404 });
   }
@@ -40,4 +40,21 @@ export async function PATCH(
   );
 
   return NextResponse.json({ msg: "update success" });
+}
+
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { id: number } }
+) {
+  const jwtPayload = await getJWTPayload();
+  const result = await ClientQuery(
+    "delete from posts where user_id = $1 and id = $2",
+    [jwtPayload.sub, params.id]
+  );
+
+  if (result.rowCount === 1) {
+    return NextResponse.json({ msg: "delete success" });
+  }
+  
+  return NextResponse.json({ error: "not found" }, { status: 404 });
 }
