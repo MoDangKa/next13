@@ -1,9 +1,8 @@
-import { capitalizeFirstLetter } from "@/util/helper";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next-intl/client";
 import Link from "next-intl/link";
 
-const links = ["feed", "profile", "following", "followers"];
+const menus = ["feed", "profile", "following", "followers"];
 
 export default function Navbar() {
   const t = useTranslations();
@@ -12,15 +11,15 @@ export default function Navbar() {
   return (
     <nav className="flex max-w-md w-full p-5 basic-card">
       <ul className="flex flex-row justify-around w-full text-white">
-        {links.map((link, i) => (
-          <li key={"li-" + i}>
+        {menus.map((menu, i) => (
+          <li key={`menu-li-${i}`}>
             <Link
-              href={`/${link}`}
+              href={`/${menu}`}
               className={
-                pathname.startsWith(`/${link}`) ? "text-emerald-500" : ""
+                pathname.startsWith(`/${menu}`) ? "text-emerald-500" : ""
               }
             >
-              {t(`common.${link}`)}
+              {t(`common.${menu}`)}
             </Link>
           </li>
         ))}

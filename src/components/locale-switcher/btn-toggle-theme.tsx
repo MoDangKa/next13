@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "@/providers/theme-provider";
 
-function BTNToggleMode() {
+export default function BTNToggleMode() {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -14,11 +14,9 @@ function BTNToggleMode() {
         onChange={toggleTheme}
       />
       <label className="sun-and-moon__label" htmlFor="sun-and-moon-checkbox">
-        <span className="sun-and-moon__indicator"></span>
-        <span className="sun-and-moon__decoration"></span>
+        <span className="sun-and-moon__indicator" />
+        <span className="sun-and-moon__decoration" />
       </label>
     </div>
   );
 }
-
-export default BTNToggleMode;

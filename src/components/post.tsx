@@ -6,6 +6,7 @@ type PostProps = { post: PostI };
 
 function Post({ post }: PostProps) {
   const format = useFormatter();
+  const dateTime = new Date(post.created_at);
   //   const options: Intl.DateTimeFormatOptions = {
   //     year: "numeric",
   //     month: "long",
@@ -26,7 +27,7 @@ function Post({ post }: PostProps) {
             {post.username}
           </Link>
           <p className=" text-slate-600 text-xs">
-            {format.dateTime(new Date(post.created_at), {
+            {format.dateTime(dateTime, {
               year: "numeric",
               month: "long",
               day: "numeric",

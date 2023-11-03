@@ -4,11 +4,11 @@ import { useParams } from "next/navigation";
 import BTNFlag from "./btn-flag";
 import BTNToggleMode from "./btn-toggle-theme";
 
-function LocaleSwitcher() {
+export default function LocaleSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
-  const locale = params.locale as Locale;
+  const locale = params.locale! as Locale;
 
   function handleClick(lang: Locale) {
     router.replace(pathname, { locale: lang });
@@ -24,5 +24,3 @@ function LocaleSwitcher() {
     </nav>
   );
 }
-
-export default LocaleSwitcher;

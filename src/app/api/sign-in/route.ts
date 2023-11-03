@@ -1,7 +1,7 @@
 import { ClientQuery } from "@/scripts/db";
-import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { SignJWT } from "jose";
+import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const json = await request.json();
