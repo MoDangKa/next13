@@ -1,7 +1,9 @@
-export default async function Following() {
-  return (
-    <>
-      <h2>Following</h2>
-    </>
-  );
+"use client";
+import dynamic from "next/dynamic";
+const FollowingContainer = dynamic(
+  () => import("@/components/following/following-container")
+);
+
+export default function FollowingPage() {
+  return <FollowingContainer />;
 }

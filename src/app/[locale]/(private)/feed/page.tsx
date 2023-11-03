@@ -1,6 +1,7 @@
 "use client";
-import FeedContainer from "@/components/feed/feed-container";
+import dynamic from "next/dynamic";
+const FeedContainer = dynamic(() => import("@/components/feed/feed-container"));
 
-export default function Feed() {
+export default function FeedPage() {
   return <FeedContainer />;
 }

@@ -1,9 +1,10 @@
 "use client";
-import PostForm from "@/components/forms/post-form";
-import PostContainer from "@/components/post/post-container";
+import dynamic from "next/dynamic";
 import useSWR from "swr";
+const PostForm = dynamic(() => import("@/components/forms/post-form"));
+const PostContainer = dynamic(() => import("@/components/post/post-container"));
 
-export default function Profile() {
+export default function ProfilePage() {
   const { data, error, isLoading } = useSWR("/api/users/profile");
 
   if (error) return <div>filed to load</div>;

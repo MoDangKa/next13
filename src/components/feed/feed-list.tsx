@@ -14,7 +14,7 @@ export default function FeedList({ index }: FeedListProps) {
   return (
     <>
       {data.data.map((post: PostI, i: number) => (
-        <li key={i} className="mb-5 last:mb-0">
+        <li key={`feed-${i}`} className="mb-5 last:mb-0">
           <Post post={post} />
         </li>
       ))}

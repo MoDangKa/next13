@@ -1,10 +1,11 @@
 "use client";
-import { SWRConfig } from "swr";
-import { PropsWithChildren } from "react";
-import Header from "./header";
-import Navbar from "./navbar";
-import Footer from "./footer";
 import fetcher from "@/util/fetcher";
+import dynamic from "next/dynamic";
+import { PropsWithChildren } from "react";
+import { SWRConfig } from "swr";
+const Header = dynamic(() => import("./header"));
+const Navbar = dynamic(() => import("./navbar"));
+const Footer = dynamic(() => import("./footer"));
 
 export default function PrivateLayout({ children }: PropsWithChildren) {
   return (
@@ -12,9 +13,7 @@ export default function PrivateLayout({ children }: PropsWithChildren) {
       <div className="flex flex-col items-center justify-center gap-2 min-h-screen max-w-md my-3 mx-auto">
         <Header />
         <Navbar />
-        <main className="w-full p-5 basic-card">
-          {children}
-        </main>
+        <main className="w-full p-5 basic-card">{children}</main>
         <Footer />
       </div>
     </SWRConfig>

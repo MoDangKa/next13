@@ -1,6 +1,6 @@
-import { ClientQuery } from "../../../../scripts/db";
 import { getJWTPayload } from "@/util/auth";
 import { NextRequest, NextResponse } from "next/server";
+import { ClientQuery } from "../../../../scripts/db";
 
 export async function GET(request: NextRequest) {
   const jwtPayload = await getJWTPayload();

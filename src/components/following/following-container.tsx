@@ -1,15 +1,15 @@
 import { Button } from "antd";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import FeedList from "./feed-list";
+import FollowingList from "./following-list";
 
-export default function FeedContainer() {
+export default function FollowingContainer() {
   const t = useTranslations();
   const [cnt, setCnt] = useState(1);
 
   const pages = [];
   for (let i = 0; i < cnt; i++) {
-    pages.push(<FeedList key={`feedList-${i}`} index={i} />);
+    pages.push(<FollowingList key={`followingList-${i}`} index={i} />);
   }
 
   return (

@@ -13,7 +13,9 @@ export default function PostContainer({ username }: PostContainerProps) {
 
   const pages = [];
   for (let i = 0; i < cnt; i++) {
-    pages.push(<PostList index={i} username={username} key={i} />);
+    pages.push(
+      <PostList key={`postList-${i}`} index={i} username={username} />
+    );
   }
 
   return (

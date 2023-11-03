@@ -17,7 +17,7 @@ export default function PostList({ index, username }: PostListProps) {
   return (
     <>
       {data.data.map((post: PostI, i: number) => (
-        <li key={i} className="mb-5 last:mb-0">
+        <li key={`post-${i}`} className="mb-5 last:mb-0">
           <Post post={post} />
         </li>
       ))}

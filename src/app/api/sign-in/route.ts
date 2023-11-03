@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     .setSubject(user.id)
     .setIssuedAt()
     .setExpirationTime("2w")
-    .sign(new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET));
+    .sign(new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET!));
 
   const response = NextResponse.json({ msg: "login success" });
 
