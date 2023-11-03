@@ -1,4 +1,4 @@
-import { ClientQuery } from "@/scripts/db";
+import { ClientQuery } from "../../../../scripts/db";
 import { getJWTPayload } from "@/util/auth";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -55,6 +55,6 @@ export async function DELETE(
   if (result.rowCount === 1) {
     return NextResponse.json({ msg: "delete success" });
   }
-  
+
   return NextResponse.json({ error: "not found" }, { status: 404 });
 }

@@ -1,4 +1,4 @@
-import { ClientQuery } from "@/scripts/db";
+import { ClientQuery } from "../../../scripts/db";
 import bcrypt from "bcrypt";
 import { SignJWT } from "jose";
 import { NextRequest, NextResponse } from "next/server";

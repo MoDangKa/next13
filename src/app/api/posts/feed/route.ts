@@ -1,4 +1,4 @@
-import { ClientQuery } from "@/scripts/db";
+import { ClientQuery } from "../../../../scripts/db";
 import { getJWTPayload } from "@/util/auth";
 import { NextRequest, NextResponse } from "next/server";
 

@@ -1,4 +1,4 @@
-import { ClientQuery } from "@/scripts/db";
+import { ClientQuery } from "../../../scripts/db";
 import { getJWTPayload } from "@/util/auth";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -24,4 +24,16 @@ export async function GET(request: NextRequest) {
   );
 
   return NextResponse.json({ data: result.rows });
+}
+
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  const jwtPayload = await getJWTPayload();
+
+  const result = await ClientQuery(
+    "insert into posts (user_id, content) values ($1, $2) returning *",
+    [jwtPayload.sub, body.content]
+  );
+
+  return NextResponse.json({ data: result.rows[0] }, { status: 201 });
 }

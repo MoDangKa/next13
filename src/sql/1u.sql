@@ -8,7 +8,7 @@ create table
         avatar text,
         is_admin boolean default false,
         created_at timestamp default now (),
-        updated_ad timestamp default now ()
+        updated_at timestamp default now ()
     );
 
 create table
@@ -17,7 +17,7 @@ create table
         user_id bigint references public.users (id),
         content text,
         created_at timestamp default now (),
-        updated_ad timestamp default now ()
+        updated_at timestamp default now ()
     );
 
 create table
@@ -25,7 +25,7 @@ create table
         user_id bigint not null references public.users (id),
         follower_id bigint not null references public.users (id),
         created_at timestamp default now (),
-        updated_ad timestamp default now (),
+        updated_at timestamp default now (),
         unique (user_id, follower_id)
     );
 
