@@ -42,6 +42,18 @@ textarea.ant-input__custom {
       }
     }
 
+    &.ant-btn-link {
+      @apply text-emerald-500;
+
+      span {
+        @apply underline;
+      }
+
+      &:not(:disabled):not(.ant-btn-disabled):hover {
+        @apply text-emerald-400;
+      }
+    }
+
     // &:not(.ant-btn-primary):not(.ant-btn-dashed):not(.ant-btn-text):not(
     //     .ant-btn-link
     //   ) {
@@ -52,5 +64,23 @@ textarea.ant-input__custom {
     //     background-color: var(--background-color-5);
     //   }
     // }
+  }
+}
+
+.ant-upload__custom {
+  @apply block mb-3 text-white;
+
+  .ant-upload-list.ant-upload-list-text {
+    .anticon.anticon-paper-clip {
+      @apply text-white;
+    }
+
+    .ant-btn .anticon.anticon-delete {
+      @apply text-white;
+    }
+
+    .ant-btn:hover .anticon.anticon-delete {
+      @apply text-emerald-500;
+    }
   }
 }

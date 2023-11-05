@@ -6,6 +6,8 @@
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
+    --toastify-icon-color-success: #10b981;
+    --toastify-color-progress-success: #10b981;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -100,6 +102,28 @@ textarea.ant-input__custom {
 }
 .ant-btn__custom.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
   @apply bg-slate-500 dark:bg-slate-950 text-slate-900 dark:text-slate-400;
+}
+.ant-btn__custom.ant-btn-link {
+  @apply text-emerald-500;
+}
+.ant-btn__custom.ant-btn-link span {
+  @apply underline;
+}
+.ant-btn__custom.ant-btn-link:not(:disabled):not(.ant-btn-disabled):hover {
+  @apply text-emerald-400;
+}
+
+.ant-upload__custom {
+  @apply block mb-3 text-white;
+}
+.ant-upload__custom .ant-upload-list.ant-upload-list-text .anticon.anticon-paper-clip {
+  @apply text-white;
+}
+.ant-upload__custom .ant-upload-list.ant-upload-list-text .ant-btn .anticon.anticon-delete {
+  @apply text-white;
+}
+.ant-upload__custom .ant-upload-list.ant-upload-list-text .ant-btn:hover .anticon.anticon-delete {
+  @apply text-emerald-500;
 }
 
 .basic-card {

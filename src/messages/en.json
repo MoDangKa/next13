@@ -11,6 +11,7 @@
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "signUp2": "Sign Up",
+    "signOut": "Sign Out",
     "loadMore": "Load More",
     "feed": "Feed",
     "profile": "Profile",
@@ -20,7 +21,8 @@
     "post": "Post",
     "post2": "post",
     "content": "Content",
-    "content2": "content"
+    "content2": "content",
+    "selectFile": "Select File"
   },
   "toast": {
     "success": "{msg} success",

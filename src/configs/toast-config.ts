@@ -7,7 +7,7 @@ export const toastOptions: ToastOptions = {
   position: "top-right",
   //   icon: MyIcon,
   transition: Slide,
-  autoClose: 3000,
+  autoClose: 2000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: true,
