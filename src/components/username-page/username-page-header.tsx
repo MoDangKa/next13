@@ -1,5 +1,6 @@
 import { Button } from "antd";
 import { useTranslations } from "next-intl";
+import { notFound } from "next/navigation";
 import useSWR, { mutate } from "swr";
 
 type UsernamePageHeaderProps = {
@@ -23,6 +24,10 @@ export default function UsernamePageHeader({
 
   if (userError || followError) return <div>failed to load</div>;
   if (userIsLoading || followIsLoading) return <div> loading...</div>;
+
+  if (!userData?.data || userData?.data.length === 0) {
+    notFound();
+  }
 
   const user = userData.data[0];
 
