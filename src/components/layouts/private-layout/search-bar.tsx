@@ -1,8 +1,11 @@
 import { Input } from "antd";
 import { ChangeEvent, useState } from "react";
+import _ from "lodash";
 
 export default function SearchBar() {
   const [searchResults, setSearchResults] = useState([]);
+
+  const debouncedFetchSearchResults = _.debounce(fetchSearchResults, 500);
 
   async function fetchSearchResults(searchText: string) {
     const result = await fetch(`/api/search?q=${searchText}`);
@@ -14,8 +17,7 @@ export default function SearchBar() {
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    console.log("e:", e.currentTarget.value);
-    fetchSearchResults(e.currentTarget.value);
+    debouncedFetchSearchResults(e.currentTarget.value);
   }
 
   return (
