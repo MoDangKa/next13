@@ -3,9 +3,9 @@ import fetcher from "@/util/fetcher";
 import dynamic from "next/dynamic";
 import { PropsWithChildren } from "react";
 import { SWRConfig } from "swr";
-const Header = dynamic(() => import("./header"));
-const Navbar = dynamic(() => import("./navbar"));
-const Footer = dynamic(() => import("./footer"));
+const Header = dynamic(() => import("@/components/private-page/header"));
+const Navbar = dynamic(() => import("@/components/private-page/navbar"));
+const Footer = dynamic(() => import("@/components/private-page/footer"));
 
 export default function PrivateLayout({ children }: PropsWithChildren) {
   return (

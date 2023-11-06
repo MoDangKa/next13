@@ -14,7 +14,9 @@ function User({ user, href }: UserProps) {
         className="flex flex-row gap-3 items-center"
       >
         <Avatar alt={user.username} src={user.avatar} />
-        <div className="text-white">{user.username}</div>
+        <div className="text-white line-clamp-1 max-w-[100px]">
+          {user.username}
+        </div>
       </Link>
     </div>
   );
