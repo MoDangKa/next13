@@ -54,6 +54,14 @@ textarea.ant-input__custom {
       }
     }
 
+    &.ant-btn-dashed {
+      @apply text-white border-slate-500;
+
+      &:not(:disabled):not(.ant-btn-disabled):hover {
+        @apply text-emerald-500 border-emerald-300;;
+      }
+    }
+
     // &:not(.ant-btn-primary):not(.ant-btn-dashed):not(.ant-btn-text):not(
     //     .ant-btn-link
     //   ) {

@@ -22,7 +22,9 @@
     "post2": "โพสต์",
     "content": "เนื้อหา",
     "content2": "เนื้อหา",
-    "selectFile": "เลือกไฟล์"
+    "selectFile": "เลือกไฟล์",
+    "follow": "ติดตาม",
+    "unfollow": "เลิกติดตาม"
   },
   "toast": {
     "success": "{msg}สำเร็จ",

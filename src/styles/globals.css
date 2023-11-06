@@ -112,6 +112,12 @@ textarea.ant-input__custom {
 .ant-btn__custom.ant-btn-link:not(:disabled):not(.ant-btn-disabled):hover {
   @apply text-emerald-400;
 }
+.ant-btn__custom.ant-btn-dashed {
+  @apply text-white border-slate-500;
+}
+.ant-btn__custom.ant-btn-dashed:not(:disabled):not(.ant-btn-disabled):hover {
+  @apply text-emerald-500 border-emerald-300;
+}
 
 .ant-upload__custom {
   @apply block mb-3 text-white;

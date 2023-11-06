@@ -22,7 +22,9 @@
     "post2": "post",
     "content": "Content",
     "content2": "content",
-    "selectFile": "Select File"
+    "selectFile": "Select File",
+    "follow": "Follow",
+    "unfollow": "Unfollow"
   },
   "toast": {
     "success": "{msg} success",

@@ -1,3 +1,5 @@
+import { Button } from "antd";
+import { useTranslations } from "next-intl";
 import useSWR, { mutate } from "swr";
 
 type UsernamePageHeaderProps = {
@@ -7,6 +9,7 @@ type UsernamePageHeaderProps = {
 export default function UsernamePageHeader({
   username,
 }: UsernamePageHeaderProps) {
+  const t = useTranslations();
   const {
     data: userData,
     error: userError,
@@ -20,8 +23,6 @@ export default function UsernamePageHeader({
 
   if (userError || followError) return <div>failed to load</div>;
   if (userIsLoading || followIsLoading) return <div> loading...</div>;
-
-  console.log(userData, followData);
 
   const user = userData.data[0];
 
@@ -43,12 +44,24 @@ export default function UsernamePageHeader({
   }
 
   return (
-    <header>
-      <h1>{username}</h1>
+    <header className="flex flex-row gap-4 items-center justify-between flex-nowrap">
+      <h5>{username}</h5>
       {followData.data.length > 0 ? (
-        <button onClick={handleUnfollow}>Undollow</button>
+        <Button
+          type="dashed"
+          className="ant-btn__custom"
+          onClick={handleUnfollow}
+        >
+          {t("common.unfollow")}
+        </Button>
       ) : (
-        <button onClick={handleFollow}>Follow</button>
+        <Button
+          type="primary"
+          className="ant-btn__custom"
+          onClick={handleFollow}
+        >
+          {t("common.follow")}
+        </Button>
       )}
     </header>
   );

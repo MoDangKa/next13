@@ -1,4 +1,5 @@
 "use client";
+import PostContainer from "@/components/post/post-container";
 import dynamic from "next/dynamic";
 const UsernamePageHeader = dynamic(
   () => import("@/components/username-page/username-page-header")
@@ -10,9 +11,9 @@ type UsernamePageProps = {
 
 export default function UsernamePage({ params }: UsernamePageProps) {
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       <UsernamePageHeader username={params.username} />
-      <div>post container {params.username}</div>
+      <PostContainer username={params.username} />
     </div>
   );
 }
