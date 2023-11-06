@@ -1,7 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 const FollowingContainer = dynamic(
-  () => import("@/components/following-page/following-container")
+  () => import("@/components/pages/following-page/following-container")
 );
 
 export default function FollowingPage() {

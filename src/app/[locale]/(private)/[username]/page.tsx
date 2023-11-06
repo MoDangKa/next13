@@ -2,7 +2,7 @@
 import PostContainer from "@/components/post/post-container";
 import dynamic from "next/dynamic";
 const UsernamePageHeader = dynamic(
-  () => import("@/components/username-page/username-page-header")
+  () => import("@/components/pages/username-page/username-page-header")
 );
 
 type UsernamePageProps = {
