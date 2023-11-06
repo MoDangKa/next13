@@ -25,7 +25,7 @@ export default function UsernamePageHeader({
   if (userError || followError) return <div>failed to load</div>;
   if (userIsLoading || followIsLoading) return <div> loading...</div>;
 
-  if (!userData?.data || userData?.data.length === 0) {
+  if (userData.data.length === 0) {
     notFound();
   }
 
