@@ -1,9 +1,31 @@
-import { Input } from "antd";
-import { ChangeEvent, useState } from "react";
+import User from "@/components/user";
+import { Form, Input } from "antd";
 import _ from "lodash";
+import { ChangeEvent, Fragment, useEffect, useRef, useState } from "react";
+
+type FieldType = {
+  search?: string;
+};
 
 export default function SearchBar() {
   const [searchResults, setSearchResults] = useState([]);
+  const [visible, setVisible] = useState(true);
+  const divRef = useRef<HTMLDivElement>(null);
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (divRef.current && !divRef.current.contains(e.target as any)) {
+        setVisible(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  });
 
   const debouncedFetchSearchResults = _.debounce(fetchSearchResults, 500);
 
@@ -12,7 +34,11 @@ export default function SearchBar() {
     if (result.ok) {
       const json = await result.json();
       console.log(json);
+      setVisible(true);
       setSearchResults(json.data);
+    } else {
+      setVisible(false);
+      setSearchResults([]);
     }
   }
 
@@ -20,14 +46,42 @@ export default function SearchBar() {
     debouncedFetchSearchResults(e.currentTarget.value);
   }
 
+  function handleClick() {
+    setVisible(false);
+    form.resetFields();
+  }
+
   return (
-    <div>
-      <Input
-        type="text"
-        className="ant-input__custom"
-        placeholder="Search"
-        onChange={handleChange}
-      />
+    <div
+      ref={divRef}
+      className="flex flex-row max-w-md w-full justify-end relative"
+    >
+      <Form
+        form={form}
+        name="search-form"
+        initialValues={{ remember: true }}
+        autoComplete="off"
+      >
+        <Form.Item<FieldType> name="search" className="mb-0">
+          <Input
+            type="text"
+            className="ant-input__custom max-w-xs"
+            placeholder="Search"
+            onChange={handleChange}
+          />
+        </Form.Item>
+      </Form>
+      {visible && searchResults.length > 0 ? (
+        <ul className="flex flex-col bg-gray-700 absolute rounded-lg top-14 w-full max-w-sm px-5 py-2 right-2 z-10">
+          {searchResults.map((result: any, i) => (
+            <li key={result.id} className="my-3" onClick={handleClick}>
+              <User user={result} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <Fragment />
+      )}
     </div>
   );
 }
