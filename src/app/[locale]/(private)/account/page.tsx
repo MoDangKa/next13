@@ -1,7 +1,7 @@
 "use client";
-
-import AvatarForm from "@/components/account/avatar-form";
-import SignOutBtn from "@/components/account/sign-out-btn";
+import dynamic from "next/dynamic";
+const AvatarForm = dynamic(() => import("@/components/account/avatar-form"));
+const SignOutBtn = dynamic(() => import("@/components/account/sign-out-btn"));
 
 export default function AccountPage() {
   return (
