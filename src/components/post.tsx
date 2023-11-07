@@ -1,4 +1,5 @@
 import { useFormatter } from "next-intl";
+import { usePathname } from "next-intl/client";
 import Link from "next-intl/link";
 import Avatar from "./avatar";
 
@@ -7,6 +8,11 @@ type PostProps = { post: PostI };
 function Post({ post }: PostProps) {
   const format = useFormatter();
   const dateTime = new Date(post.created_at);
+  const pathname = usePathname();
+
+  const href = pathname.startsWith("/profile")
+    ? `/profile/edit-post/${post.id}`
+    : `/${post.username}`;
 
   //   const options: Intl.DateTimeFormatOptions = {
   //     year: "numeric",
@@ -20,12 +26,12 @@ function Post({ post }: PostProps) {
 
   return (
     <div className="flex flex-row gap-3">
-      <Link href={`/${post.username}`} className="grow-0 shrink-0">
+      <Link href={href} className="grow-0 shrink-0">
         <Avatar alt={post.username} src={post.avatar} />
       </Link>
       <div className="basis-auto shrink grow">
         <div className="flex flex-col">
-          <Link href={`/${post.username}`} className="text-emerald-500">
+          <Link href={href} className="text-emerald-500">
             {post.username}
           </Link>
           <p className=" text-slate-600 text-xs">

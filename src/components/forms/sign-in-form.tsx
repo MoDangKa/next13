@@ -21,7 +21,7 @@ export default function SignInForm() {
 
   async function onFinish(values: FieldType) {
     const result = await fetch("/api/sign-in", {
-      method: "post",
+      method: "POST",
       body: JSON.stringify({
         username: values.username,
         password: values.password,

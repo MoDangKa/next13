@@ -21,10 +21,7 @@ export default function SearchBar() {
     };
 
     document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
+    return () => document.removeEventListener("click", handleClickOutside);
   });
 
   const debouncedFetchSearchResults = _.debounce(fetchSearchResults, 500);
@@ -33,7 +30,6 @@ export default function SearchBar() {
     const result = await fetch(`/api/search?q=${searchText}`);
     if (result.ok) {
       const json = await result.json();
-      console.log(json);
       setVisible(true);
       setSearchResults(json.data);
     } else {
@@ -72,9 +68,13 @@ export default function SearchBar() {
         </Form.Item>
       </Form>
       {visible && searchResults.length > 0 ? (
-        <ul className="flex flex-col bg-gray-700 absolute rounded-lg top-14 w-full max-w-sm px-5 py-2 right-2 z-10">
-          {searchResults.map((result: any, i) => (
-            <li key={result.id} className="my-3" onClick={handleClick}>
+        <ul className="flex flex-col bg-gray-700 absolute rounded-lg top-14 w-full max-w-sm py-2 right-2 z-10">
+          {searchResults.map((result: UserI) => (
+            <li
+              key={result.id}
+              className="px-5 py-3 hover:bg-gray-500 transition-all"
+              onClick={handleClick}
+            >
               <User user={result} />
             </li>
           ))}

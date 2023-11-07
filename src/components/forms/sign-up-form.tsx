@@ -21,7 +21,7 @@ function SignUpForm() {
 
   async function onFinish(values: FieldType) {
     const result = await fetch("/api/sign-up", {
-      method: "post",
+      method: "POST",
       body: JSON.stringify({
         username: values.username,
         password: values.password,
