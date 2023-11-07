@@ -1,4 +1,5 @@
 "use client";
+import DeleteBtn from "@/components/pages/edit-post-page/delete-btn";
 import dynamic from "next/dynamic";
 import useSWR from "swr";
 
@@ -17,8 +18,10 @@ export default function EditPostPage({ params }: EditPostPageProps) {
   if (isLoading) return <div>loading...</div>;
 
   return (
-    <>
+    <div className="w-full flex flex-col">
       <EditPostForm post={data.data} />
-    </>
+      <hr className="my-5" />
+      <DeleteBtn post={data.data} />
+    </div>
   );
 }

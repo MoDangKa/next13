@@ -26,10 +26,22 @@
     "selectFile": "เลือกไฟล์",
     "follow": "ติดตาม",
     "unfollow": "เลิกติดตาม",
-    "edit": "แก้ไข"
+    "edit": "แก้ไข",
+    "delete": "ลบ",
+    "yes": "ใช่",
+    "no": "ไม่"
   },
   "toast": {
     "success": "{msg}สำเร็จ",
     "error": "{msg}ล้มเหลว"
+  },
+  "popConfirm": {
+    "delete": {
+      "post": {
+        "title": "ลบโพสต์",
+        "description": "คุณแน่ใจว่าจะลบโพสต์นี้",
+        "btn": "ลบโพสต์"
+      }
+    }
   }
 }

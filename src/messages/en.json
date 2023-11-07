@@ -26,10 +26,22 @@
     "selectFile": "Select File",
     "follow": "Follow",
     "unfollow": "Unfollow",
-    "edit": "Edit"
+    "edit": "Edit",
+    "delete": "Delete",
+    "yes": "Yes",
+    "no": "No"
   },
   "toast": {
     "success": "{msg} success",
     "error": "{msg} failed"
+  },
+  "popConfirm": {
+    "delete": {
+      "post": {
+        "title": "delete the post",
+        "description": "Are you sure to delete this post?",
+        "btn": "Delete Post"
+      }
+    }
   }
 }

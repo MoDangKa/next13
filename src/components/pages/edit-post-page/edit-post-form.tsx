@@ -1,7 +1,6 @@
 import { Button, Form, Input } from "antd";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next-intl/client";
-import { useSWRConfig } from "swr";
 
 type EditPostFormProps = {
   post: PostI;
@@ -13,7 +12,6 @@ type FieldType = {
 
 export default function EditPostForm({ post }: EditPostFormProps) {
   const router = useRouter();
-  const { mutate } = useSWRConfig();
   const t = useTranslations();
   const [form] = Form.useForm();
 
@@ -31,7 +29,6 @@ export default function EditPostForm({ post }: EditPostFormProps) {
 
     if (result.ok) {
       onReset();
-      mutate((key) => typeof key === "string" && key.startsWith("/api/posts"));
       router.push("/profile");
     }
   }

@@ -132,6 +132,37 @@ textarea.ant-input__custom {
   @apply text-emerald-500;
 }
 
+.ant-popover.ant-popconfirm > .ant-popover-arrow {
+  @apply dark:before:bg-gray-700 dark:after:bg-gray-700;
+}
+.ant-popover.ant-popconfirm > .ant-popover-content > .ant-popover-inner {
+  @apply dark:bg-gray-700 rounded-lg p-3;
+}
+.ant-popover.ant-popconfirm > .ant-popover-content > .ant-popover-inner .anticon {
+  @apply text-lg text-amber-500 dark:text-amber-400;
+}
+.ant-popover.ant-popconfirm > .ant-popover-content > .ant-popover-inner .ant-popconfirm-title {
+  @apply dark:text-slate-200 font-normal;
+}
+.ant-popover.ant-popconfirm > .ant-popover-content > .ant-popover-inner .ant-popconfirm-description {
+  @apply dark:text-slate-400 font-light;
+}
+.ant-popover.ant-popconfirm > .ant-popover-content > .ant-popover-inner .ant-popconfirm-buttons > .ant-btn {
+  @apply font-light min-w-[40px];
+}
+.ant-popover.ant-popconfirm > .ant-popover-content > .ant-popover-inner .ant-popconfirm-buttons > .ant-btn.ant-btn-default {
+  @apply dark:text-gray-300 dark:border-gray-500;
+}
+.ant-popover.ant-popconfirm > .ant-popover-content > .ant-popover-inner .ant-popconfirm-buttons > .ant-btn.ant-btn-default:hover {
+  @apply dark:bg-gray-200 text-slate-800 border-slate-600;
+}
+.ant-popover.ant-popconfirm > .ant-popover-content > .ant-popover-inner .ant-popconfirm-buttons > .ant-btn.ant-btn-primary {
+  @apply bg-slate-400 dark:bg-slate-900 shadow-none text-slate-900 dark:text-slate-400;
+}
+.ant-popover.ant-popconfirm > .ant-popover-content > .ant-popover-inner .ant-popconfirm-buttons > .ant-btn.ant-btn-primary:hover {
+  @apply bg-slate-500 dark:bg-slate-950 text-slate-900 dark:text-slate-400;
+}
+
 .basic-card {
   @apply bg-slate-700 dark:bg-slate-800 text-white rounded-lg;
 }
