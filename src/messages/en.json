@@ -25,7 +25,8 @@
     "content2": "content",
     "selectFile": "Select File",
     "follow": "Follow",
-    "unfollow": "Unfollow"
+    "unfollow": "Unfollow",
+    "edit": "Edit"
   },
   "toast": {
     "success": "{msg} success",

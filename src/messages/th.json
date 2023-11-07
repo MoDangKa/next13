@@ -25,7 +25,8 @@
     "content2": "เนื้อหา",
     "selectFile": "เลือกไฟล์",
     "follow": "ติดตาม",
-    "unfollow": "เลิกติดตาม"
+    "unfollow": "เลิกติดตาม",
+    "edit": "แก้ไข"
   },
   "toast": {
     "success": "{msg}สำเร็จ",

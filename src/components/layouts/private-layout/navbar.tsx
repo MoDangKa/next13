@@ -10,13 +10,15 @@ export default function Navbar() {
 
   return (
     <nav className="flex max-w-md w-full p-5 basic-card">
-      <ul className="flex flex-row justify-around w-full text-white">
+      <ul className="flex flex-row justify-around w-full">
         {menus.map((menu, i) => (
           <li key={`menu-li-${i}`}>
             <Link
               href={`/${menu}`}
               className={
-                pathname.startsWith(`/${menu}`) ? "text-emerald-500" : ""
+                pathname.startsWith(`/${menu}`)
+                  ? "text-emerald-500"
+                  : "text-slate-200 hover:text-emerald-400 transition-color duration-300"
               }
             >
               {t(`common.${menu}`)}

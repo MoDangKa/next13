@@ -32,7 +32,7 @@ textarea.ant-input__custom {
 // Button
 .ant-btn {
   &__custom {
-    @apply h-12 px-3 py-1 rounded-lg font-light;
+    @apply h-12 px-3 py-1 rounded-lg font-light transition-all duration-300;
 
     &.ant-btn-primary {
       @apply bg-slate-400 dark:bg-slate-900 shadow-none text-slate-900 dark:text-slate-400;
@@ -43,7 +43,7 @@ textarea.ant-input__custom {
     }
 
     &.ant-btn-link {
-      @apply text-emerald-500;
+      @apply text-slate-300 h-auto p-0;
 
       span {
         @apply underline;
@@ -58,7 +58,7 @@ textarea.ant-input__custom {
       @apply text-white border-slate-500;
 
       &:not(:disabled):not(.ant-btn-disabled):hover {
-        @apply text-emerald-500 border-emerald-300;;
+        @apply text-emerald-500 border-emerald-300;
       }
     }
 
