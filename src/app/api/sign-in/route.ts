@@ -1,7 +1,7 @@
-import { ClientQuery } from "../../../scripts/db";
 import bcrypt from "bcrypt";
 import { SignJWT } from "jose";
 import { NextRequest, NextResponse } from "next/server";
+import { ClientQuery } from "../../../scripts/db";
 
 export async function POST(request: NextRequest) {
   const json = await request.json();
@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     [json.username]
   );
 
-  const jwtToken = process.env.JWT_TOKEN!;
+  const jwtToken = "jwt-token";
 
   if (result.rowCount === 0) {
     const response = NextResponse.json(

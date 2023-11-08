@@ -20,16 +20,14 @@ export function withAuthentication(middleware: NextMiddleware) {
     const authenticatedCronRoutes = [pathname.startsWith("/api/cron")];
 
     if (authenticatedAPIRoutes.includes(true)) {
-      const cookie = request.cookies.get(process.env.JWT_TOKEN!);
+      const cookie = request.cookies.get("jwt-token");
 
       if (!cookie || !cookie?.value) {
         return NextResponse.json({ error: "unauthenticated" }, { status: 401 });
       }
 
       try {
-        const secret = new TextEncoder().encode(
-          process.env.JWT_SECRET
-        );
+        const secret = new TextEncoder().encode(process.env.JWT_SECRET);
         await jwtVerify(cookie.value, secret);
       } catch (error) {
         console.error(error);

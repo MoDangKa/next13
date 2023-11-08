@@ -17,7 +17,7 @@ async function loadFakeData(numUsers: number = 10) {
     await client.query("begin");
 
     for (let i = 0; i < numUsers; i++) {
-      const salt = parseInt(process.env.SALT!);
+      const salt = 10;
       const hash = await bcrypt.hash("strings123", salt);
 
       await client.query(

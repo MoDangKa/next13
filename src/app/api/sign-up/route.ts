@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "user already exists" }, { status: 400 });
   }
 
-  const salt = parseInt(process.env.SALT!);
+  const salt = 10;
   const hash = await bcrypt.hash(body.password, salt);
 
   await ClientQuery(
