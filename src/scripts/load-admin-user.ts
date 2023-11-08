@@ -8,7 +8,7 @@ loadEnvConfig(projectDir);
 // tsx src/scripts/load-admin-user.ts admin strings123
 async function loadAdminUser(username: string, password: string) {
   console.log(`executing loading admin user ${username} pw ${password}`);
-  const salt = parseInt(process.env.NEXT_PUBLIC_SALT!);
+  const salt = parseInt(process.env.SALT!);
   const hash = await bcrypt.hash(password, salt);
   const client = await Client();
   await client.connect();

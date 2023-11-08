@@ -13,7 +13,7 @@ type ThemeState = {
   toggleTheme(): void;
 };
 
-const key = "color-theme";
+const key = process.env.NEXT_PUBLIC_COLOR_THEME!;
 
 const ThemeContext = createContext<ThemeState | null>(null);
 

@@ -13,10 +13,14 @@ export function withAuthentication(middleware: NextMiddleware) {
       pathname.startsWith("/api/users"),
       pathname.startsWith("/api/posts"),
       pathname.startsWith("/api/follows"),
+      pathname.startsWith("/api/admin"),
+      pathname.startsWith("/api/search"),
     ];
 
+    const authenticatedCronRoutes = [pathname.startsWith("/api/cron")];
+
     if (authenticatedAPIRoutes.includes(true)) {
-      const cookie = request.cookies.get(process.env.NEXT_PUBLIC_JWT_TOKEN!);
+      const cookie = request.cookies.get(process.env.JWT_TOKEN!);
 
       if (!cookie || !cookie?.value) {
         return NextResponse.json({ error: "unauthenticated" }, { status: 401 });
@@ -24,11 +28,19 @@ export function withAuthentication(middleware: NextMiddleware) {
 
       try {
         const secret = new TextEncoder().encode(
-          process.env.NEXT_PUBLIC_JWT_SECRET
+          process.env.JWT_SECRET
         );
         await jwtVerify(cookie.value, secret);
       } catch (error) {
         console.error(error);
+        return NextResponse.json({ error: "unauthenticated" }, { status: 401 });
+      }
+    }
+
+    if (authenticatedCronRoutes.includes(true)) {
+      const key = request.nextUrl.searchParams.get("cron_api_key");
+      const isAuthenticated = key === process.env.NEXT_PUBLIC_CRON_API_KEY;
+      if (!isAuthenticated) {
         return NextResponse.json({ error: "unauthenticated" }, { status: 401 });
       }
     }

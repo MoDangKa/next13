@@ -14,7 +14,7 @@ export function withLocalization(middleware: NextMiddleware) {
   return async (request: NextRequest, event: NextFetchEvent) => {
     const pathname = request.nextUrl.pathname;
     if (regex.test(pathname)) {
-      const nextLocale = process.env.NEXT_PUBLIC_NEXT_LOCALE!;
+      const nextLocale = process.env.NEXT_LOCALE!;
       const cookie = request.cookies.get(nextLocale);
       const locale = !cookie || !cookie?.value ? defaultLocale : cookie.value;
       const url = `/${locale}${pathname}`;

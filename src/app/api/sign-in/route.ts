@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     [json.username]
   );
 
-  const jwtToken = process.env.NEXT_PUBLIC_JWT_TOKEN!;
+  const jwtToken = process.env.JWT_TOKEN!;
 
   if (result.rowCount === 0) {
     const response = NextResponse.json(
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     .setSubject(user.id)
     .setIssuedAt()
     .setExpirationTime("2w")
-    .sign(new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET!));
+    .sign(new TextEncoder().encode(process.env.JWT_SECRET!));
 
   const response = NextResponse.json({ msg: "login success" });
 
