@@ -34,7 +34,7 @@ async function loadFakeData(numUsers: number = 10) {
     console.log(res.rows);
 
     for (const row of res.rows) {
-      for (let i = 0; i < Math.ceil(Math.random() * 10); i++) {
+      for (let i = 0; i < Math.ceil(Math.random() * 30); i++) {
         await client.query(
           "insert into public.posts (user_id, content) values ($1, $2)",
           [row.id, faker.lorem.sentence()]
