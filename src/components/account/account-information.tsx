@@ -1,10 +1,11 @@
-import Avatar from "@/components/avatar";
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Upload } from "antd";
 import type { UploadFile, UploadProps } from "antd/es/upload/interface";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import useSWR from "swr";
+const Avatar = dynamic(() => import("@/components/avatar"));
 
 function normFile(e: any) {
   if (Array.isArray(e)) {
@@ -13,7 +14,7 @@ function normFile(e: any) {
   return e?.fileList;
 }
 
-export default function AvatarForm() {
+export default function AccountInformation() {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const { data, error, isLoading } = useSWR("/api/users/profile");
   const t = useTranslations();

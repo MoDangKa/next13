@@ -106,7 +106,7 @@ function SignUpForm() {
         </Form.Item>
       </div>
       <div>
-        <Button type="primary" htmlType="submit" className="ant-btn__custom">
+        <Button type="primary" htmlType="submit" className="ant-btn__custom w-full">
           {t("common.signUp2")}
         </Button>
       </div>

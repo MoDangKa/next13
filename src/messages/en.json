@@ -29,7 +29,8 @@
     "edit": "Edit",
     "delete": "Delete",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "upload": "Upload"
   },
   "toast": {
     "success": "{msg} success",

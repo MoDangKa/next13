@@ -12,7 +12,11 @@ const nextConfig = withNextIntl({
     ];
   },
   images: {
-    domains: ["avatars.githubusercontent.com", "cloudflare-ipfs.com"],
+    domains: [
+      "avatars.githubusercontent.com",
+      "cloudflare-ipfs.com",
+      "nb6uld796oapyje7.public.blob.vercel-storage.com",
+    ],
   },
 });
 

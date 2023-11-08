@@ -16,6 +16,8 @@ create table
         id bigserial primary key,
         user_id bigint references public.users (id),
         content text,
+        is_misinformation boolean,
+        is_misinformation_flagged_at timestamp,
         created_at timestamp default now (),
         updated_at timestamp default now ()
     );

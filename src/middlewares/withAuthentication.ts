@@ -17,8 +17,6 @@ export function withAuthentication(middleware: NextMiddleware) {
       pathname.startsWith("/api/search"),
     ];
 
-    const authenticatedCronRoutes = [pathname.startsWith("/api/cron")];
-
     if (authenticatedAPIRoutes.includes(true)) {
       const cookie = request.cookies.get("jwt-token");
 
@@ -34,6 +32,8 @@ export function withAuthentication(middleware: NextMiddleware) {
         return NextResponse.json({ error: "unauthenticated" }, { status: 401 });
       }
     }
+
+    const authenticatedCronRoutes = [pathname.startsWith("/api/cron")];
 
     if (authenticatedCronRoutes.includes(true)) {
       const key = request.nextUrl.searchParams.get("cron_api_key");
