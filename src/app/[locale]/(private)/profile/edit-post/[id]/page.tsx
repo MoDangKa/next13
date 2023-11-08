@@ -1,10 +1,13 @@
 "use client";
-import DeleteBtn from "@/components/pages/edit-post-page/delete-btn";
+
 import dynamic from "next/dynamic";
 import useSWR from "swr";
 
 const EditPostForm = dynamic(
   () => import("@/components/pages/edit-post-page/edit-post-form")
+);
+const DeleteBtn = dynamic(
+  () => import("@/components/pages/edit-post-page/delete-btn")
 );
 
 type EditPostPageProps = {
