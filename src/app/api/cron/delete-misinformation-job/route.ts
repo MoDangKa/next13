@@ -2,6 +2,7 @@ import { ClientQuery } from "@/scripts/db";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
+  console.log("executing delete misinformation job");
   const result = await ClientQuery(
     "delete from posts where is_misinformation = true and is_misinformation_flagged_at <= now() - interval '1 minute'"
   );
