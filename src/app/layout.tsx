@@ -1,16 +1,15 @@
-import "@/styles/globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
+import "@/styles/globals.css";
+import { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import { PropsWithChildren } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import { Metadata } from "next";
-import Head from "next/head";
 
 const prompt = Prompt({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
-  subsets: ["latin", "thai"],
+  subsets: ["latin"],
   display: "swap",
   variable: "--font-prompt",
 });
